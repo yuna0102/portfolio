@@ -6,363 +6,7 @@
 <title>최윤아 · Product Manager</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --white: #ffffff;
-  --gray-50: #F3F2EF;
-  --gray-100: #E8E7E3;
-  --gray-200: #C8C7C2;
-  --gray-400: #888880;
-  --gray-600: #555550;
-  --black: #0F0F0E;
-  --red: #FF3B30;
-  --radius: 16px;
-  --radius-sm: 8px;
-}
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'DM Sans', 'Noto Sans KR', -apple-system, sans-serif;
-  background: var(--white);
-  color: var(--black);
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ══ NAV ══ */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  height: 60px;
-  display: flex; align-items: center; justify-content: center;
-  background: rgba(255,255,255,0.9);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-}
-.nav-pill {
-  display: inline-flex; align-items: center; gap: 2px;
-  background: var(--white);
-  border: 1px solid var(--gray-100);
-  border-radius: 100px;
-  padding: 4px;
-  box-shadow: 0 1px 8px rgba(0,0,0,0.07), 0 0 0 0.5px rgba(0,0,0,0.04);
-}
-.nav-item {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 13px; font-weight: 400;
-  padding: 7px 16px; border-radius: 100px;
-  color: var(--gray-600); text-decoration: none;
-  transition: all 0.15s;
-  font-family: 'DM Sans', sans-serif;
-  white-space: nowrap; cursor: pointer; border: none; background: none;
-}
-.nav-item:hover { color: var(--black); background: var(--gray-50); }
-.nav-item.active {
-  background: var(--gray-50);
-  color: var(--black);
-  font-weight: 600;
-}
-.nav-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--red); flex-shrink: 0;
-  display: none;
-}
-.nav-item.active .nav-dot { display: block; }
-
-/* ══ MAIN LAYOUT ══ */
-.page { padding-top: 60px; max-width: 900px; margin: 0 auto; padding-left: 40px; padding-right: 40px; }
-
-/* ══ HERO ══ */
-.hero {
-  padding: 80px 0 72px;
-  border-bottom: 1px solid var(--gray-100);
-}
-.hero-name {
-  font-size: clamp(48px, 7vw, 80px);
-  font-weight: 700; letter-spacing: -3px; line-height: 1.0;
-  color: var(--black); margin-bottom: 24px;
-  font-family: 'DM Sans', sans-serif;
-}
-.hero-name em { font-style: normal; color: var(--gray-400); }
-.hero-tagline {
-  font-size: 18px; color: var(--gray-600); line-height: 1.7;
-  max-width: 560px; margin-bottom: 36px; font-weight: 400;
-}
-.hero-tagline strong { color: var(--black); font-weight: 500; }
-.hero-links { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 48px; }
-.pill {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 13px; padding: 7px 14px; border-radius: 100px;
-  border: 1px solid var(--gray-100); color: var(--gray-600);
-  text-decoration: none; transition: all 0.12s;
-  font-family: 'DM Sans', sans-serif; background: var(--white);
-}
-.pill:hover { border-color: var(--black); color: var(--black); }
-.pill-solid { background: var(--black) !important; color: var(--white) !important; border-color: var(--black) !important; }
-.pill-solid:hover { background: #333 !important; }
-.hero-stats { display: flex; gap: 40px; flex-wrap: wrap; }
-.stat-val { font-size: 28px; font-weight: 700; letter-spacing: -1px; color: var(--black); line-height: 1; font-family: 'DM Sans', sans-serif; }
-.stat-val small { font-size: 14px; font-weight: 400; color: var(--gray-400); margin-left: 4px; }
-.stat-lbl { font-size: 12px; color: var(--gray-400); margin-top: 4px; }
-
-
-/* ══ HERO PHOTO ══ */
-.hero { display: flex; align-items: flex-start; gap: 40px; }
-.hero-body { flex: 1; min-width: 0; }
-.hero-photo {
-  width: 160px; height: 200px;
-  border-radius: 14px;
-  object-fit: cover; object-position: center 15%;
-  flex-shrink: 0;
-  border: 1px solid var(--gray-100);
-}
-@media (max-width: 600px) {
-  .hero { flex-direction: column-reverse; gap: 20px; }
-  .hero-photo { width: 100%; height: 220px; }
-}
-
-
-/* ══ BUSINESS IMPACT ══ */
-.impact-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 0;
-}
-.impact-card {
-  padding: 24px 26px; border: 1px solid var(--gray-100);
-  border-radius: var(--radius); background: var(--gray-50);
-}
-.impact-card-eyebrow {
-  font-size: 10px; font-weight: 600; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--gray-400);
-  margin-bottom: 10px; font-family: 'DM Sans', sans-serif;
-}
-.impact-card-title {
-  font-size: 16px; font-weight: 700; letter-spacing: -0.5px;
-  color: var(--black); margin-bottom: 10px; line-height: 1.3;
-}
-.impact-card-desc {
-  font-size: 13px; color: var(--gray-600); line-height: 1.7;
-  margin-bottom: 14px;
-}
-.impact-list {
-  list-style: none; padding: 0; margin: 0;
-  display: flex; flex-direction: column; gap: 6px;
-}
-.impact-list li {
-  font-size: 12.5px; color: var(--gray-600); line-height: 1.5;
-  padding-left: 14px; position: relative;
-}
-.impact-list li::before {
-  content: '→'; position: absolute; left: 0; color: var(--gray-400); font-size: 11px;
-}
-@media (max-width: 600px) { .impact-grid { grid-template-columns: 1fr; } }
-
-/* ══ SKILL CHIPS under exp/proj ══ */
-.item-skills {
-  display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px;
-}
-.skill-tag {
-  font-size: 11px; font-weight: 500; padding: 4px 10px;
-  border-radius: 100px; border: 1px solid var(--gray-100);
-  color: var(--gray-600); background: var(--white);
-  font-family: 'DM Sans', sans-serif;
-}
-
-/* ══ CONTACT ══ */
-.contact-list { display: flex; flex-direction: column; gap: 0; }
-.contact-row {
-  display: flex; align-items: center; gap: 24px;
-  padding: 18px 0; border-bottom: 1px solid var(--gray-100);
-  text-decoration: none; color: inherit;
-  transition: background 0.1s;
-}
-.contact-row:last-child { border-bottom: none; }
-.contact-row:hover .contact-val { color: var(--black); }
-.contact-type {
-  font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
-  color: var(--gray-400); width: 72px; flex-shrink: 0;
-  font-family: 'DM Sans', sans-serif; text-transform: uppercase;
-}
-.contact-val {
-  font-size: 15px; color: var(--gray-600); transition: color 0.12s;
-}
-
-/* ══ SECTION ══ */
-.section { padding: 64px 0; border-bottom: 1px solid var(--gray-100); }
-.section-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-400); margin-bottom: 40px; font-family: 'DM Sans', sans-serif; }
-
-/* ══ EDUCATION ══ */
-.edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.edu-card { padding: 20px 22px; border: 1px solid var(--gray-100); border-radius: var(--radius-sm); }
-.edu-school { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
-.edu-major { font-size: 14px; color: var(--gray-600); }
-.edu-period { font-size: 12px; color: var(--gray-400); margin-top: 4px; font-family: 'DM Sans', sans-serif; }
-
-/* ══ EXPERIENCE ══ */
-.exp-item { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 32px 0; border-bottom: 1px solid var(--gray-100); }
-.exp-item:last-child { border-bottom: none; }
-.exp-period { font-size: 12px; color: var(--gray-400); margin-bottom: 4px; font-family: 'DM Sans', sans-serif; }
-.exp-company { font-size: 14px; font-weight: 600; color: var(--black); }
-.exp-role { font-size: 12px; color: var(--gray-400); margin-top: 2px; }
-.exp-job-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--black); }
-.exp-desc { font-size: 14px; color: var(--gray-600); line-height: 1.7; margin-bottom: 12px; }
-.exp-result { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 6px 12px; border-radius: 100px; background: var(--gray-50); color: var(--gray-600); margin-top: 8px; margin-right: 6px; margin-bottom: 6px; font-family: 'DM Sans', sans-serif; }
-.exp-divider { width: 100%; height: 1px; background: var(--gray-100); margin: 24px 0; }
-
-/* ══ AWARDS ══ */
-.awards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.award-card { padding: 18px 20px; border: 1px solid var(--gray-100); border-radius: var(--radius-sm); transition: border-color 0.12s; }
-.award-card:hover { border-color: var(--gray-200); }
-.award-org { font-size: 11px; color: var(--gray-400); font-weight: 500; letter-spacing: 0.3px; text-transform: uppercase; margin-bottom: 4px; font-family: 'DM Sans', sans-serif; }
-.award-name { font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 4px; }
-.award-desc { font-size: 12px; color: var(--gray-400); line-height: 1.55; }
-
-/* ══ ACTIVITIES ══ */
-.act-item { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 18px 0; border-bottom: 1px solid var(--gray-100); align-items: baseline; }
-.act-item:last-child { border-bottom: none; }
-.act-period { font-size: 12px; color: var(--gray-400); font-family: 'DM Sans', sans-serif; }
-.act-name { font-size: 14px; font-weight: 500; color: var(--black); }
-
-/* ══ PROJECT LISTING (marco.fyi style) ══ */
-.proj-list-item {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
-  padding: 56px 0; border-bottom: 1px solid var(--gray-100);
-  align-items: center; cursor: pointer;
-  transition: opacity 0.15s;
-}
-.proj-list-item:last-child { border-bottom: none; }
-.proj-list-item:hover { opacity: 0.85; }
-.proj-list-left {}
-.proj-list-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
-.proj-tag { font-size: 11px; padding: 3px 10px; border-radius: 100px; border: 1px solid var(--gray-100); color: var(--gray-400); font-family: 'DM Sans', sans-serif; font-weight: 500; }
-.proj-list-title { font-size: clamp(24px, 3.5vw, 36px); font-weight: 700; letter-spacing: -1px; line-height: 1.15; margin-bottom: 8px; font-family: 'DM Sans', sans-serif; }
-.proj-list-sub { font-size: 14px; color: var(--gray-600); line-height: 1.65; margin-bottom: 20px; max-width: 360px; }
-.proj-list-meta { display: flex; gap: 20px; flex-wrap: wrap; }
-.proj-list-meta-item dt { font-size: 10px; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; font-family: 'DM Sans', sans-serif; margin-bottom: 2px; }
-.proj-list-meta-item dd { font-size: 13px; color: var(--black); font-weight: 500; }
-.proj-arrow-btn {
-  margin-top: 24px;
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 13px; color: var(--black); font-weight: 500;
-  text-decoration: none; cursor: pointer;
-  border: 1px solid var(--gray-100); padding: 8px 16px;
-  border-radius: 100px; transition: all 0.12s;
-  font-family: 'DM Sans', sans-serif; background: none;
-}
-.proj-arrow-btn:hover { background: var(--black); color: var(--white); border-color: var(--black); }
-.proj-list-right { }
-.proj-preview {
-  border-radius: var(--radius); overflow: hidden;
-  background: var(--gray-50); border: 1px solid var(--gray-100);
-  aspect-ratio: 4/3;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--gray-400); font-size: 13px;
-}
-.proj-preview img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-/* ══ SKILLS ══ */
-.skills-row { margin-bottom: 24px; }
-.skills-row-label { font-size: 12px; color: var(--gray-400); font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 10px; font-family: 'DM Sans', sans-serif; }
-.skill-chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.chip { font-size: 13px; padding: 5px 12px; border-radius: 100px; border: 1px solid var(--gray-100); color: var(--gray-600); background: var(--white); font-family: 'DM Sans', sans-serif; }
-
-/* ══ FOOTER ══ */
-footer { padding: 40px 0 48px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--gray-100); font-size: 13px; color: var(--gray-400); font-family: 'DM Sans', sans-serif; }
-
-/* ══ PROJECT DETAIL PAGE ══ */
-#project-detail {
-  display: none;
-  padding-top: 60px;
-  max-width: 900px; margin: 0 auto; padding-left: 40px; padding-right: 40px;
-}
-#project-detail.visible { display: block; }
-
-.detail-back {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 13px; color: var(--gray-600); cursor: pointer;
-  padding: 28px 0 0;
-  font-family: 'DM Sans', sans-serif;
-  border: none; background: none; transition: color 0.12s;
-}
-.detail-back:hover { color: var(--black); }
-.detail-back svg { width: 14px; height: 14px; }
-
-.detail-header { padding: 24px 0 48px; border-bottom: 1px solid var(--gray-100); }
-.detail-badge-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
-.detail-badge { font-size: 11px; padding: 4px 10px; border-radius: 100px; border: 1px solid var(--gray-100); color: var(--gray-400); font-family: 'DM Sans', sans-serif; font-weight: 500; }
-.detail-title { font-size: clamp(28px, 4.5vw, 48px); font-weight: 700; letter-spacing: -2px; line-height: 1.1; margin-bottom: 16px; font-family: 'DM Sans', sans-serif; }
-.detail-intro { font-size: 16px; color: var(--gray-600); line-height: 1.75; max-width: 600px; margin-bottom: 24px; }
-.detail-meta-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 16px; padding: 24px; background: var(--gray-50); border-radius: var(--radius); margin-bottom: 32px; }
-.detail-meta-cell dt { font-size: 11px; color: var(--gray-400); font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px; font-family: 'DM Sans', sans-serif; }
-.detail-meta-cell dd { font-size: 14px; color: var(--black); font-weight: 500; }
-
-.kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--gray-100); border-radius: var(--radius); overflow: hidden; margin-bottom: 40px; }
-.kpi-cell { padding: 24px 28px; border-right: 1px solid var(--gray-100); }
-.kpi-cell:last-child { border-right: none; }
-.kpi-val { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; color: var(--black); line-height: 1; margin-bottom: 6px; font-family: 'DM Sans', sans-serif; }
-.kpi-arrow { color: var(--gray-400); font-weight: 300; margin: 0 4px; }
-.kpi-lbl { font-size: 12px; color: var(--gray-400); }
-
-.process-flow { display: flex; align-items: center; gap: 0; flex-wrap: wrap; margin: 20px 0; }
-.process-step { font-size: 12px; font-weight: 500; padding: 6px 14px; background: var(--gray-50); border: 1px solid var(--gray-100); border-radius: 100px; white-space: nowrap; color: var(--gray-600); font-family: 'DM Sans', sans-serif; }
-.process-step.done { background: var(--black); color: white; border-color: var(--black); }
-.process-arrow { color: var(--gray-200); padding: 0 6px; font-size: 14px; }
-
-/* detail layout */
-.detail-body { display: grid; grid-template-columns: 192px 1fr; gap: 56px; align-items: start; padding: 48px 0; }
-.detail-toc { position: sticky; top: 76px; }
-.toc-eyebrow { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-400); margin-bottom: 12px; font-family: 'DM Sans', sans-serif; font-weight: 600; }
-.toc-link { display: block; font-size: 13px; color: var(--gray-400); text-decoration: none; padding: 4px 0 4px 12px; border-left: 2px solid transparent; transition: color 0.12s; line-height: 1.5; margin-bottom: 2px; font-family: 'DM Sans', sans-serif; }
-.toc-link:hover { color: var(--black); }
-.toc-link.active { color: var(--black); border-left-color: var(--black); font-weight: 500; }
-.toc-sub { padding-left: 24px; font-size: 12px; }
-
-.proj-block { margin-bottom: 52px; scroll-margin-top: 76px; }
-.proj-block-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gray-400); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--gray-100); font-family: 'DM Sans', sans-serif; }
-.proj-block-h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; color: var(--black); font-family: 'DM Sans', sans-serif; }
-.proj-block-h3 { font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 10px; margin-top: 24px; }
-.proj-block p, .proj-block li { font-size: 14px; color: var(--gray-600); line-height: 1.75; margin-bottom: 10px; }
-.proj-block ul { padding-left: 16px; }
-.proj-block li { margin-bottom: 6px; }
-
-.callout { background: var(--gray-50); border-radius: var(--radius-sm); padding: 16px 20px; margin: 16px 0; font-size: 14px; color: var(--gray-600); line-height: 1.7; border: 1px solid var(--gray-100); }
-.callout-title { font-weight: 600; color: var(--black); margin-bottom: 6px; font-size: 14px; }
-.callout.info { background: #EEF5FF; border-color: #C5D9F8; }
-.callout.success { background: #F0FAF4; border-color: #C3E6CB; }
-.callout.warning { background: #FFFBF0; border-color: #FFE4A0; }
-.callout.key { background: var(--black); color: rgba(255,255,255,0.85); border-color: var(--black); }
-.callout.key .callout-title { color: white; }
-
-.tbl { width: 100%; border-collapse: collapse; font-size: 13px; margin: 16px 0; }
-.tbl th { background: var(--gray-50); padding: 9px 14px; text-align: left; font-weight: 600; color: var(--gray-600); border-bottom: 1px solid var(--gray-100); font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; font-family: 'DM Sans', sans-serif; }
-.tbl td { padding: 11px 14px; border-bottom: 1px solid var(--gray-100); vertical-align: top; line-height: 1.6; color: var(--gray-600); }
-.tbl tr:last-child td { border-bottom: none; }
-
-.img-frame { border-radius: var(--radius); overflow: hidden; background: var(--gray-50); margin: 16px 0; border: 1px solid var(--gray-100); }
-.img-frame img { width: 100%; display: block; }
-.img-placeholder { min-height: 180px; display: none; flex-direction: column; align-items: center; justify-content: center; color: var(--gray-400); gap: 8px; padding: 32px; text-align: center; font-size: 13px; }
-.img-cap { font-size: 12px; color: var(--gray-400); padding: 10px 16px; border-top: 1px solid var(--gray-100); background: var(--white); font-family: 'DM Sans', sans-serif; }
-
-.insight-card { border: 1px solid var(--gray-100); border-radius: var(--radius-sm); padding: 16px 20px; margin: 10px 0; font-size: 13px; }
-.insight-num { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: var(--black); color: white; font-size: 10px; font-weight: 700; margin-right: 8px; flex-shrink: 0; font-family: 'DM Sans', sans-serif; }
-.insight-hd { display: flex; align-items: center; font-weight: 600; color: var(--black); margin-bottom: 10px; }
-.insight-row { display: grid; grid-template-columns: 52px 1fr; gap: 6px 10px; margin: 3px 0; color: var(--gray-600); }
-.insight-key { font-size: 11px; font-weight: 700; color: var(--black); text-transform: uppercase; letter-spacing: 0.3px; font-family: 'DM Sans', sans-serif; }
-
-/* ══ RESPONSIVE ══ */
-@media (max-width: 720px) {
-  .page, #project-detail { padding-left: 20px; padding-right: 20px; }
-  .hero-name { letter-spacing: -2px; }
-  .proj-list-item { grid-template-columns: 1fr; gap: 24px; }
-  .detail-body { grid-template-columns: 1fr; }
-  .detail-toc { display: none; }
-  .exp-item, .act-item { grid-template-columns: 1fr; gap: 4px; }
-  .awards-grid, .edu-grid { grid-template-columns: 1fr; }
-  .kpi-row { grid-template-columns: 1fr; }
-  .kpi-cell { border-right: none; border-bottom: 1px solid var(--gray-100); }
-  .kpi-cell:last-child { border-bottom: none; }
-  .nav-pill { flex-wrap: wrap; border-radius: 16px; }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -373,10 +17,7 @@ footer { padding: 40px 0 48px; display: flex; justify-content: space-between; al
       <span class="nav-dot"></span>소개
     </button>
     <button class="nav-item" onclick="showMain('education')" data-section="education">
-      <span class="nav-dot"></span>학력
-    </button>
-    <button class="nav-item" onclick="showMain('experience')" data-section="experience">
-      <span class="nav-dot"></span>경력
+      <span class="nav-dot"></span>학력/경력
     </button>
     <button class="nav-item" onclick="showMain('awards')" data-section="awards">
       <span class="nav-dot"></span>수상
@@ -481,53 +122,125 @@ footer { padding: 40px 0 48px; display: flex; justify-content: space-between; al
 
   <div class="exp-item">
     <div>
-      <div class="exp-period">2024.01 – 2024.11 · 11개월</div>
+      <img class="exp-logo" src="images/logo/icon-orca.png" alt="오르카스튜디오" onerror="this.style.display='none'">
+      <div class="exp-period">2024.01 – 2024.11 (11개월)</div>
       <div class="exp-company">오르카스튜디오</div>
       <div class="exp-role">Product Manager</div>
     </div>
     <div>
+      <div style="font-size:13px;font-weight:600;color:var(--gray-400);margin-bottom:16px;letter-spacing:0.5px;">주요 업무 및 성과</div>
+
       <div class="exp-job-title">신규 차량 무인인수 서비스 기획 및 운영</div>
-      <p class="exp-desc">대면 차량 인수로 인한 피크타임 병목 및 인력 비용 문제를 해결하기 위해 면허 인증·차량 촬영·디지털 서명 등 무인인수 앱 엔드투엔드 여정을 설계하고, 빈번 CS 문의를 앱 내재화했습니다.</p>
-      <span class="exp-result">✓ 고객 인수 시간 5분 → 30초</span>
-      <span class="exp-result">✓ 유선 CS 문의 40% 감축</span>
-      <div class="exp-divider"></div>
+      <div class="exp-task-card">
+        <div class="exp-task-row">
+          <span class="exp-task-label">문제 상황</span>
+          <div class="exp-task-content">대면 차량 인수로 인한 피크타임 고객 대기 병목 및 상주 인력 운영 비용 상승</div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">핵심 업무</span>
+          <div class="exp-task-content">차량 인수 비대면 전환을 위한 면허 인증, 차량 촬영, 디지털 서명 등 <strong>무인인수 앱의 엔드투엔드 여정 설계</strong> 및 사용 연장, 대여 모델 변경 등 <strong>빈번 CS 문의 앱 내재화</strong></div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label result-label">최종 성과</span>
+          <div class="exp-task-content"><strong>고객 인수 시간 (5분 → 30초) 감소</strong> 및 유선 CS 문의 <strong>40% 감축</strong></div>
+        </div>
+      </div>
+
       <div class="exp-job-title">중소렌터카 대상 ERP SaaS VoC 기반 기능 개선</div>
-      <p class="exp-desc">첫 고객사 도입 이후 400여 개 VoC 중 핵심 과제를 선별, 일 1회 고객 인터뷰로 요구사항을 우선순위화하여 예약 대시보드·면허증 OCR·가격 추천 기능 등을 기획했습니다.</p>
-      <span class="exp-result">✓ 1개월 내 200여 개 이슈 해결</span>
-      <span class="exp-result">✓ 타 고객사 도입 의뢰</span>
-      <div class="exp-divider"></div>
+      <div class="exp-task-card">
+        <div class="exp-task-row">
+          <span class="exp-task-label">문제 상황</span>
+          <div class="exp-task-content">첫 고객사 도입 이후, 400여 개 VoC 중 고객사의 매출/운영 효율과 직결된 핵심 과제 선별 필요</div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">핵심 업무</span>
+          <div class="exp-task-content"><strong>1일 1회 고객 인터뷰</strong>를 통한 요구사항 우선순위화 및 ERP SaaS 기능 설계
+            <ul>
+              <li>일 1천건이 넘는 예약 현황 엑셀 관리 → 예약 플랫폼별 대시보드 기획</li>
+              <li>인증 오류 시 직원 수동 대응 → 면허증 OCR 기반 예외 케이스 로직 구축</li>
+              <li>수동 가격 설정 관행 → 타사 판매가 추적 기반의 공급가 추천 기능 제안</li>
+            </ul>
+          </div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label result-label">최종 성과</span>
+          <div class="exp-task-content">1달 동안 총 <strong>200여개 이슈 해결</strong> 및 타 고객사 대시보드 <strong>도입 의뢰</strong></div>
+        </div>
+      </div>
+
       <div class="exp-job-title">현장 업무 효율화를 위한 모바일 UX 개선</div>
-      <p class="exp-desc">1주 렌터카 현장을 직접 관찰·인터뷰하여 이동 동선에 최적화된 모바일 화면을 설계, PC 기반 ERP의 야외 입력 누락 문제를 해결했습니다.</p>
-      <span class="exp-result">✓ 모바일 실시간 입력률 개선</span>
+      <div class="exp-task-card">
+        <div class="exp-task-row">
+          <span class="exp-task-label">문제 상황</span>
+          <div class="exp-task-content">PC 기반 ERP의 복잡한 UI로 야외 현장 근무자의 데이터 실시간 입력 누락 및 배차 지연 발생</div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">핵심 업무</span>
+          <div class="exp-task-content">일주일 간 렌터카 운영 현장을 직접 관찰 및 인터뷰하여 현장 워크플로우 파악. 차량 상태 확인, 계약서 매칭 등 현장 이동 동선에 최적화된 모바일 화면 설계 및 테스트 버전 도입</div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label result-label">최종 성과</span>
+          <div class="exp-task-content">모바일 SaaS의 <strong>실시간 입력률 개선</strong> 및 운영 신뢰도 제고</div>
+        </div>
+      </div>
+
       <div class="item-skills">
-        <span class="skill-tag">유저 리서치</span>
-        <span class="skill-tag">보틀넥 발굴</span>
-        <span class="skill-tag">우선순위 설정</span>
-        <span class="skill-tag">데이터 분석</span>
-        <span class="skill-tag">화면 설계</span>
+        <span class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>유저 리서치</span>
+        <span class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20M7 7l10 10M17 7 7 17"/></svg>보틀넥 발굴</span>
+        <span class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 12h12M6 7h12M6 17h12"/></svg>우선순위 설정</span>
+        <span class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>데이터 분석</span>
+        <span class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>화면 설계</span>
       </div>
     </div>
   </div>
 
   <div class="exp-item">
     <div>
+      <img class="exp-logo" src="images/logo/icon-goqual.png" alt="고퀄(헤이홈)" onerror="this.style.display='none'">
       <div class="exp-period">2022.04 – 2022.07 · 3개월</div>
       <div class="exp-company">고퀄</div>
       <div class="exp-role">Growth Marketing Intern</div>
     </div>
     <div>
+      <div style="font-size:13px;font-weight:600;color:var(--gray-400);margin-bottom:16px;letter-spacing:0.5px;">주요 업무 및 성과</div>
+
       <div class="exp-job-title">자사 IoT 제품 기반 제휴 프로모션 제안 및 운영</div>
-      <p class="exp-desc">'불면'을 주제로 한 제휴 프로모션 기획 및 제안서 작성, 상세 페이지 기획·디자인을 담당했습니다.</p>
-      <span class="exp-result">✓ 자사 단독 대비 매출 120% 달성</span>
-      <div class="exp-divider"></div>
+      <div class="exp-task-card">
+        <div class="exp-task-row">
+          <span class="exp-task-label">문제 상황</span>
+          <div class="exp-task-content">'불면'을 주제로 한 제휴 프로모션 기회 발굴 필요</div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">핵심 업무</span>
+          <div class="exp-task-content">제휴 프로모션 기획 및 제안서 작성, 상세 페이지 기획·디자인 담당</div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label result-label">최종 성과</span>
+          <div class="exp-task-content">자사 단독 대비 <strong>매출 120% 달성</strong></div>
+        </div>
+      </div>
+
       <div class="exp-job-title">외부 리뷰 콘텐츠 수집 자동화</div>
-      <p class="exp-desc">블로그·인스타그램 리뷰의 수동 저장 프로세스를 Python 크롤러로 전면 자동화하고, 팀원이 이용할 수 있도록 실행 가능한 프로그램으로 패키징·배포했습니다.</p>
-      <span class="exp-result">✓ 리뷰 수집·업로드 전면 자동화</span>
+      <div class="exp-task-card">
+        <div class="exp-task-row">
+          <span class="exp-task-label">문제 상황</span>
+          <div class="exp-task-content">블로그·인스타그램 리뷰를 수동으로 저장하는 비효율적 프로세스</div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">핵심 업무</span>
+          <div class="exp-task-content">Python 크롤러로 리뷰 수집 전면 자동화, 팀원이 이용할 수 있도록 실행 가능한 프로그램으로 패키징·배포</div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label result-label">최종 성과</span>
+          <div class="exp-task-content"><strong>리뷰 수집·업로드 전면 자동화</strong></div>
+        </div>
+      </div>
+
       <div class="item-skills">
-        <span class="skill-tag">콘텐츠 기획</span>
-        <span class="skill-tag">퍼포먼스 마케팅</span>
-        <span class="skill-tag">보틀넥 발굴</span>
-        <span class="skill-tag">자동화</span>
+        <span class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>콘텐츠 기획</span>
+        <span class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>퍼포먼스 마케팅</span>
+        <span class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20M7 7l10 10M17 7 7 17"/></svg>보틀넥 발굴</span>
+        <span class="skill-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-6"/><path d="m4 14 4-4 4 4 8-8"/></svg>자동화</span>
       </div>
     </div>
   </div>
@@ -584,13 +297,13 @@ footer { padding: 40px 0 48px; display: flex; justify-content: space-between; al
 <section class="section" id="activities">
   <div class="section-eyebrow">Activities · 대외 활동</div>
   <div>
-    <div class="act-item"><div class="act-period">2025.08 – 2026.02</div><div class="act-name">SOPT 대학생IT벤처연합 37기 기획 파트장</div></div>
-    <div class="act-item"><div class="act-period">2025.03 – 2025.07</div><div class="act-name">SOPT 대학생IT벤처연합 36기 기획 파트원</div></div>
-    <div class="act-item"><div class="act-period">2023.09 – 2024.02</div><div class="act-name">DArt-B 중앙대학교 데이터분석학회 학회원</div></div>
-    <div class="act-item"><div class="act-period">2022.07 – 2022.11</div><div class="act-name">KUSITMS 대학생IT경영학회 26기 교육기획팀장</div></div>
-    <div class="act-item"><div class="act-period">2022.02 – 2022.06</div><div class="act-name">KUSITMS 대학생IT경영학회 25기 기획자</div></div>
-    <div class="act-item"><div class="act-period">2021.03 – 2021.10</div><div class="act-name">스플랩 초기 창업팀 기획자</div></div>
-    <div class="act-item"><div class="act-period">2020.03 – 2020.12</div><div class="act-name">멋쟁이사자처럼 9기 서버 개발자</div></div>
+    <div class="act-item"><div class="act-period">2025.08 – 2026.02</div><div class="act-name-wrap"><img class="act-logo" src="images/logo/icon-sopt.png" alt="SOPT" onerror="this.style.display='none'"><div class="act-name">SOPT 대학생IT벤처연합 37기 기획 파트장</div></div></div>
+    <div class="act-item"><div class="act-period">2025.03 – 2025.07</div><div class="act-name-wrap"><img class="act-logo" src="images/logo/icon-sopt.png" alt="SOPT" onerror="this.style.display='none'"><div class="act-name">SOPT 대학생IT벤처연합 36기 기획 파트원</div></div></div>
+    <div class="act-item"><div class="act-period">2023.09 – 2024.02</div><div class="act-name-wrap"><img class="act-logo" src="images/logo/icon-dartb.png" alt="DArt-B" onerror="this.style.display='none'"><div class="act-name">DArt-B 중앙대학교 데이터분석학회 학회원</div></div></div>
+    <div class="act-item"><div class="act-period">2022.07 – 2022.11</div><div class="act-name-wrap"><img class="act-logo" src="images/logo/icon-kusitms.png" alt="KUSITMS" onerror="this.style.display='none'"><div class="act-name">KUSITMS 대학생IT경영학회 26기 교육기획팀장</div></div></div>
+    <div class="act-item"><div class="act-period">2022.02 – 2022.06</div><div class="act-name-wrap"><img class="act-logo" src="images/logo/icon-kusitms.png" alt="KUSITMS" onerror="this.style.display='none'"><div class="act-name">KUSITMS 대학생IT경영학회 25기 기획자</div></div></div>
+    <div class="act-item"><div class="act-period">2021.03 – 2021.10</div><div class="act-name-wrap"><img class="act-logo" src="images/logo/icon-splab.png" alt="스플랩" onerror="this.style.display='none'"><div class="act-name">스플랩 초기 창업팀 기획자</div></div></div>
+    <div class="act-item"><div class="act-period">2020.03 – 2020.12</div><div class="act-name-wrap"><img class="act-logo" src="images/logo/icon-likelion.png" alt="멋쟁이사자처럼" onerror="this.style.display='none'"><div class="act-name">멋쟁이사자처럼 9기 서버 개발자</div></div></div>
   </div>
 </section>
 
@@ -598,43 +311,61 @@ footer { padding: 40px 0 48px; display: flex; justify-content: space-between; al
 <section class="section" id="projects">
   <div class="section-eyebrow">Projects · 프로젝트</div>
 
-  <!-- 하우미 -->
-  <div class="proj-list-item" onclick="openProject('houme')">
-    <div class="proj-list-left">
-      <div class="proj-list-tags">
-        <span class="proj-tag">Web Service</span>
-        <span class="proj-tag">PM</span>
-        <span class="proj-tag">SOPT 36기</span>
-        <span class="proj-tag">🏆 데모데이 우수상</span>
-      </div>
-      <div class="proj-list-title">🌐 하우미</div>
-      <div class="proj-list-sub">AI 인테리어 이미지 기반 상품 추천 서비스 — 상품 클릭률 11.7% → 28% 개선</div>
-      <div class="item-skills" style="margin-top:12px;">
-        <span class="skill-tag">유저 리서치</span>
-        <span class="skill-tag">지표 설계</span>
-        <span class="skill-tag">실험/검증</span>
-        <span class="skill-tag">데이터 분석</span>
-        <span class="skill-tag">AI 응답 최적화</span>
-      </div>
-      <div class="proj-list-meta">
-        <dl class="proj-list-meta-item"><dt>기간</dt><dd>2025.06 – 현재</dd></dl>
-        <dl class="proj-list-meta-item"><dt>역할</dt><dd>팀 리더, 기획자</dd></dl>
-        <dl class="proj-list-meta-item"><dt>팀</dt><dd>13명</dd></dl>
-      </div>
-      <button class="proj-arrow-btn" onclick="openProject('houme');event.stopPropagation()">
-        자세히 보기 →
-      </button>
-    </div>
-    <div class="proj-list-right">
-      <div class="proj-preview">
-        <img src="images/houme/title.png" alt="하우미" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=\'font-size:32px\'>🏠</span>'">
-      </div>
-    </div>
-  </div>
+  <div class="proj-grid">
 
-  <!-- 프로젝트 추가 예정 플레이스홀더 -->
-  <div style="padding: 40px 0; text-align: center; color: var(--gray-400); font-size: 14px; font-family: 'DM Sans', sans-serif; border-top: 1px dashed var(--gray-100); margin-top: 0;">
-    + 추가 프로젝트가 여기에 표시됩니다
+    <!-- 하우미 -->
+    <div class="proj-card" onclick="openProject('houme')">
+      <div class="proj-card-img">
+        <img src="images/houme/title.png" alt="하우미" onerror="this.style.display='none'">
+        <span class="proj-card-year">2025</span>
+      </div>
+      <div class="proj-card-body">
+        <div class="proj-card-title-row">
+          <span class="proj-card-title">하우미</span>
+          <svg class="proj-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </div>
+        <div class="proj-card-sub">Web Service · PM · SOPT 36기 · 🏆 데모데이 우수상</div>
+        <p class="proj-card-desc">AI 인테리어 이미지 기반 상품 추천 서비스 — 상품 클릭률 11.7% → 28% 개선</p>
+        <div class="proj-card-tags">
+          <span class="proj-card-tag">유저 리서치</span>
+          <span class="proj-card-tag">지표 설계</span>
+          <span class="proj-card-tag">실험/검증</span>
+          <span class="proj-card-tag">데이터 분석</span>
+          <span class="proj-card-tag">AI 응답 최적화</span>
+        </div>
+        <ul class="proj-card-highlights">
+          <li>유저 리서치 기반 상품 추천 UX 개선</li>
+          <li>A/B 테스트로 클릭률 11.7% → 28% 달성</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 배틀그라운드 AI -->
+    <div class="proj-card" onclick="openProject('pubg')">
+      <div class="proj-card-img">
+        <img src="images/pubg/Slide Title.jpg" alt="PUBG 데이터 분석" onerror="this.style.display='none'">
+        <span class="proj-card-year">2023</span>
+      </div>
+      <div class="proj-card-body">
+        <div class="proj-card-title-row">
+          <span class="proj-card-title">배틀그라운드 AI 행동 특성 제언</span>
+          <svg class="proj-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </div>
+        <div class="proj-card-sub">Data Analysis · DArt-B 학술제</div>
+        <p class="proj-card-desc">PUBG API 110만 건 로그 분석 — K-Means 클러스터링으로 5개 유저 유형 도출 및 실력별 맞춤 AI 행동 제안</p>
+        <div class="proj-card-tags">
+          <span class="proj-card-tag">데이터 분석</span>
+          <span class="proj-card-tag">K-Means 클러스터링</span>
+          <span class="proj-card-tag">API 데이터 수집</span>
+          <span class="proj-card-tag">회귀 분석</span>
+        </div>
+        <ul class="proj-card-highlights">
+          <li>110만 건 PUBG API 로그 데이터 수집 및 전처리</li>
+          <li>K-Means 클러스터링 기반 5개 유저 유형 도출</li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -666,7 +397,9 @@ footer { padding: 40px 0 48px; display: flex; justify-content: space-between; al
      PROJECT DETAIL: 하우미
 ══════════════════════════════════════ -->
 <div id="project-detail">
-<div style="max-width:900px;margin:0 auto;padding:0 40px 80px;">
+
+<!-- ══ HOUME DETAIL ══ -->
+<div class="project-page" id="project-houme" style="max-width:900px;margin:0 auto;padding:0 40px 80px;">
 
   <button class="detail-back" onclick="closeProject()">
     <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2L4 7l5 5"/></svg>
@@ -1050,70 +783,439 @@ footer { padding: 40px 0 48px; display: flex; justify-content: space-between; al
     <span>dudusiz3368@gmail.com</span>
   </footer>
 
-</div>
+</div><!-- /project-houme -->
+
+<!-- ══ PUBG DETAIL ══ -->
+<div class="project-page" id="project-pubg" style="max-width:900px;margin:0 auto;padding:0 40px 80px;display:none;">
+
+  <button class="detail-back" onclick="closeProject()">
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2L4 7l5 5"/></svg>
+    프로젝트 목록으로
+  </button>
+
+  <!-- HEADER -->
+  <div class="detail-header">
+    <div class="detail-badge-row">
+      <span class="detail-badge">Data Analysis</span>
+      <span class="detail-badge">DArt-B 학술제</span>
+      <span class="detail-badge">2023 CAU</span>
+    </div>
+    <h1 class="detail-title">🎮 배틀그라운드 유저 실력별<br>AI 행동 특성 제언</h1>
+    <p class="detail-intro">배틀그라운드의 AI 봇이 유저 실력을 적절히 반영하지 못하는 문제를 발견하고, PUBG API 110만 건의 플레이 로그를 분석하여 유저를 5개 유형으로 클러스터링한 뒤, 각 수준에 맞는 AI 행동 특성을 제안한 데이터 분석 프로젝트</p>
+
+    <div class="detail-meta-grid">
+      <dl class="detail-meta-cell"><dt>기간</dt><dd>2023.09 – 2024.02</dd></dl>
+      <dl class="detail-meta-cell"><dt>역할</dt><dd>데이터 분석</dd></dl>
+      <dl class="detail-meta-cell"><dt>팀</dt><dd>4명</dd></dl>
+      <dl class="detail-meta-cell"><dt>데이터</dt><dd>약 110만 건</dd></dl>
+    </div>
+
+    <div class="process-flow" style="margin-bottom:28px;">
+      <span class="process-step done">Problem Recognition</span><span class="process-arrow">→</span>
+      <span class="process-step done">Problem Definition</span><span class="process-arrow">→</span>
+      <span class="process-step done">Data Collection</span><span class="process-arrow">→</span>
+      <span class="process-step done">Preprocessing</span><span class="process-arrow">→</span>
+      <span class="process-step done">Analysis</span><span class="process-arrow">→</span>
+      <span class="process-step done">Insight</span><span class="process-arrow">→</span>
+      <span class="process-step done">Conclusion</span>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi-cell">
+        <div class="kpi-val">110만+</div>
+        <div class="kpi-lbl">분석 데이터 건수</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-val">5개 유형</div>
+        <div class="kpi-lbl">유저 클러스터 도출</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-val">3단계</div>
+        <div class="kpi-lbl">맞춤 AI 난이도 제안</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div style="padding: 48px 0;">
+
+    <!-- 1. Problem Recognition -->
+    <div style="margin-bottom:56px;">
+      <div class="section-eyebrow" style="margin-bottom:20px;">01 · Problem Recognition</div>
+
+      <h2 style="font-size:24px;font-weight:700;letter-spacing:-1px;margin-bottom:20px;">플레이 수준에 맞는 몰입 경험</h2>
+      <div class="img-frame">
+        <img src="images/pubg/동접자추세.png" alt="문제 정의" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'">
+        <div class="img-placeholder"><span style="font-size:24px">🗺</span><span>동접자 하락 그래프</span></div>
+        <div class="img-cap">매년 하락하고 있는 배틀그라운드 동시 접속자 추세</div>
+      </div>
+      
+      <div class="exp-task-card">
+        <div class="exp-task-row">
+          <span class="exp-task-label">배경</span>
+          <div class="exp-task-content">배틀그라운드는 2018년 이후 동시접속자 수가 지속적으로 하락. 하락 원인을 찾기 위해 게임 데이터 EDA 진행</div>
+        </div>
+      </div>
+      <div class="img-frame">
+        <img src="images/pubg/Slide 16_9 - 32.png" alt="문제 정의" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'">
+        <div class="img-placeholder"><span style="font-size:24px">🗺</span><span>배틀그라운드 내 고수 분포</span></div>
+        <div class="img-cap">게임 데이터 확인 결과, 초보 유저 비율이 매우 낮음을 발견</div>
+      </div>
+      <div class="exp-task-card">
+        <div class="exp-task-row">
+          <span class="exp-task-label">현황 확인</span>
+          <div class="exp-task-content">실제로 실력별 유저 분포를 살펴본 결과, 고수에 밀집되어 초보 플레이어의 플레이 비율이 매우 낮다는 것을 발견</div>
+        </div>
+      </div>
+    </div>
+      <div class="img-frame">
+        <img src="images/pubg/Slide 16_9 - 30.png" alt="문제 정의" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'">
+        <div class="img-placeholder"><span style="font-size:24px">🗺</span><span>유저 실력별 경험 그래프</span></div>
+        <div class="img-cap">게임 실력과 맞지 않는 플레이 난이도는 몰입 경험을 떨어뜨리는 문제</div>
+      </div>
+      <div class="exp-task-card">
+        <div class="exp-task-row">
+          <span class="exp-task-label">문제 가설</span>
+          <div class="exp-task-content">
+            <ul>
+              <li>초보에게 어려운 난이도의 게임은 <strong>'불안함'</strong>을, 고수에게 쉬운 난이도는 <strong>'지루함'</strong>을 제공함</li>
+              <li>이때 배틀그라운드는 매칭마다 부족한 인원을 AI 봇으로 충당하고 있음</li>
+              <li>그러나 현재 고수 유저에게는 AI가 너무 쉽고, 초보 유저에게는 AI가 너무 어려운 구조</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding:20px 24px;background:var(--accent-light);border:1px solid var(--accent);border-radius:var(--radius);display:flex;align-items:flex-start;gap:12px;">
+        <span style="font-size:18px;flex-shrink:0;line-height:1;">💡</span>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--accent-dark);margin-bottom:4px;letter-spacing:0.5px;">가설 설정</div>
+          <div style="font-size:14px;color:var(--black);font-weight:500;line-height:1.65;">유저의 실력별로 AI봇의 행동 양식을 고도화하면, 초보와 고수가 모두 만족하는 게임 플레이가 가능할 것이다.</div>
+        </div>
+      </div>
+      
+
+    <!-- 2. Problem Definition -->
+    <div style="margin-top:56px; margin-bottom:56px;">
+      <div class="section-eyebrow" style="margin-bottom:20px;">02 · Problem Definition</div>
+      <h2 style="font-size:24px;font-weight:700;letter-spacing:-1px;margin-bottom:20px;">프로젝트 탐구 문제</h2>
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="padding:20px 24px;background:var(--gray-50);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;">
+          <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;">H1</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;">
+            <div style="font-size:14px;font-weight:600;color:var(--black);">매치에 참여하는 AI는 유저의 실력을 적절히 반영하지 못하고 있을 것이다.</div>
+            <a href="#pubg-q1" style="font-size:12px;color:var(--gray-400);text-decoration:none;white-space:nowrap;flex-shrink:0;font-weight:500;transition:color 0.15s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--gray-400)'">자세히 보기 →</a>
+          </div>
+        </div>
+        <div style="padding:20px 24px;background:var(--gray-50);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;">
+          <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;">H2</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;">
+            <div style="font-size:14px;font-weight:600;color:var(--black);">고수와 초보의 게임 플레이는 유의미하게 다를 것이다.</div>
+            <a href="#pubg-q2" style="font-size:12px;color:var(--gray-400);text-decoration:none;white-space:nowrap;flex-shrink:0;font-weight:500;transition:color 0.15s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--gray-400)'">자세히 보기 →</a>
+          </div>
+        </div>
+        <div style="padding:20px 24px;background:var(--gray-50);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;">
+          <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;">H3</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;">
+            <div style="font-size:14px;font-weight:600;color:var(--black);">플레이어 수준별 맞춤 AI 행동 특성을 적용하면 몰입 경험이 향상될 것이다.</div>
+            <a href="#pubg-q3" style="font-size:12px;color:var(--gray-400);text-decoration:none;white-space:nowrap;flex-shrink:0;font-weight:500;transition:color 0.15s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--gray-400)'">자세히 보기 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Data Collection -->
+    <div style="margin-top:56px; margin-bottom:56px;">
+      <div class="section-eyebrow" style="margin-bottom:20px;">03 · Data Collection</div>
+      <h2 style="font-size:24px;font-weight:700;letter-spacing:-1px;margin-bottom:20px;">PUBG API 데이터 수집</h2>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
+        <div class="impact-card">
+          <div class="impact-card-eyebrow">데이터 소스</div>
+          <div class="impact-card-title">PUBG 오픈 API 가공</div>
+          <div class="impact-card-desc">console, steam, kakao 3개 채널</div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-card-eyebrow">수집 규모</div>
+          <div class="impact-card-title">약 110만 건</div>
+          <div class="impact-card-desc">2023.11.01 – 11.14 (2주간 게임 데이터)</div>
+        </div>
+      </div>
+
+      <table class="tbl">
+        <thead>
+          <tr><th>분류</th><th>변수명</th><th>설명</th></tr>
+        </thead>
+        <tbody>
+          <tr><td rowspan="4" style="font-weight:600;color:var(--black);">Kill 관련</td><td><code>damageDealt</code></td><td>가한 데미지량</td></tr>
+          <tr><td><code>kills</code></td><td>킬 수</td></tr>
+          <tr><td><code>killStreaks</code></td><td>연속 킬 수</td></tr>
+          <tr><td><code>killPlace</code></td><td>킬 기준 순위</td></tr>
+          <tr><td rowspan="3" style="font-weight:600;color:var(--black);">아이템 관련</td><td><code>boosts</code></td><td>부스트 아이템 사용량</td></tr>
+          <tr><td><code>heals</code></td><td>회복 아이템 사용량</td></tr>
+          <tr><td><code>weaponAcquired</code></td><td>무기 획득량</td></tr>
+          <tr><td rowspan="2" style="font-weight:600;color:var(--black);">이동 관련</td><td><code>walkDistance</code></td><td>도보 이동 거리</td></tr>
+          <tr><td><code>rideDistance</code></td><td>차량 이동 거리</td></tr>
+          <tr><td style="font-weight:600;color:var(--black);">결과</td><td><code>winPlace</code></td><td>게임 최종 순위</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 4. 탐구문제 1 -->
+    <div id="pubg-q1" style="margin-bottom:56px;scroll-margin-top:80px;">
+      <div class="section-eyebrow" style="margin-bottom:20px;">04 · Analysis — 탐구 문제 1</div>
+      <h2 style="font-size:24px;font-weight:700;letter-spacing:-1px;margin-bottom:20px;">매치에 참여하는 AI는 유저의 실력을 적절히 반영하고 있는가?</h2>
+
+      <!-- Step 1: 순위 등급화 -->
+      <h3 style="font-size:16px;font-weight:600;color:var(--black);margin-bottom:12px;">Step 1 · 순위 등급화</h3>
+      <p style="font-size:13.5px;color:var(--gray-600);line-height:1.7;margin-bottom:16px;">5판 이상 플레이한 유저 대상, 매치 평균 순위를 10단계 rank로 등급화 했습니다.</p>
+
+      <table class="tbl" style="max-width:360px;margin-bottom:32px;">
+        <thead><tr><th>winPlace 범위</th><th>rank</th></tr></thead>
+        <tbody>
+          <tr><td>1 – 10</td><td>1 (최상위)</td></tr>
+          <tr><td>11 – 20</td><td>2</td></tr>
+          <tr><td>21 – 30</td><td>3</td></tr>
+          <tr><td>41 – 50</td><td>5</td></tr>
+          <tr><td>71 – 80</td><td>8</td></tr>
+          <tr><td>91 – 100</td><td>10 (최하위)</td></tr>
+        </tbody>
+      </table>
+
+      <!-- Step 2: 회귀 모델 -->
+      <h3 style="font-size:16px;font-weight:600;color:var(--black);margin-bottom:12px;">Step 2 · rank 예측 회귀 모델</h3>
+      <p style="font-size:13.5px;color:var(--gray-600);line-height:1.7;margin-bottom:16px;">AI 봇의 rank 예측을 위해 회귀 모델을 활용 했습니다.</p>
+      <div class="exp-task-card" style="margin-bottom:20px;">
+        <div class="exp-task-row">
+          <span class="exp-task-label">목적</span>
+          <div class="exp-task-content">AI 봇과 실제 유저의 플레이 로그를 동일한 모델에 입력하여 <strong>rank를 예측</strong>하고, 양쪽 분포를 비교</div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">모델</span>
+          <div class="exp-task-content">6개 회귀 모델 비교: Linear, Ridge, Lasso, <strong>Random Forest</strong>, Decision Tree, K-Neighbor</div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">검증</span>
+          <div class="exp-task-content"><strong>10-Fold Cross Validation</strong> / RMSE 기준 → <strong>Random Forest가 최저 RMSE</strong>로 최적 모델 선정</div>
+        </div>
+      </div>
+
+      <!-- Step 3: 결과 -->
+      <h3 style="font-size:16px;font-weight:600;color:var(--black);margin-bottom:12px;">Step 3 · 유저 vs AI rank 분포 비교</h3>
+      <p style="font-size:13.5px;color:var(--gray-600);line-height:1.7;margin-bottom:16px;">Random Forest로 예측한 유저 rank 분포(빨강)와 AI rank 분포(파랑)를 매치별로 비교한 결과, <strong>두 분포가 크게 불일치</strong>하는 것을 확인했습니다.</p>
+      <div class="img-frame">
+        <img src="images/pubg/Slide 16_9 - 43.png" alt="유저와 AI봇 간 실력 불일치" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'">
+        <div class="img-placeholder"><span style="font-size:24px">🗺</span><span>유저와 AI봇 간 실력 불일치</span></div>
+        <div class="img-cap">매칭 데이터 확인 결과, 유저 Rank와 AI Rank가 비례하지 않음</div>
+      </div>
+      <div style="padding:20px 24px;background:var(--accent-light);border:1px solid var(--accent);border-radius:var(--radius);display:flex;align-items:flex-start;gap:12px;">
+        <span style="font-size:18px;flex-shrink:0;line-height:1;">📊</span>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--accent-dark);margin-bottom:4px;letter-spacing:0.5px;">탐구 문제 1 결론</div>
+          <div style="font-size:14px;color:var(--black);font-weight:500;line-height:1.65;">AI는 유저 실력을 적절히 반영하지 못하고 있다. 유저 rank 분포와 AI rank 분포가 불균형하며, 현재 AI 봇은 실력 수준에 관계없이 비슷한 행동 패턴을 보인다.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. 탐구문제 2 -->
+    <div id="pubg-q2" style="margin-bottom:56px;scroll-margin-top:80px;">
+      <div class="section-eyebrow" style="margin-bottom:20px;">05 · Analysis — 탐구 문제 2</div>
+      <h2 style="font-size:24px;font-weight:700;letter-spacing:-1px;margin-bottom:20px;">고수와 초보의 게임 플레이는 어떤 점이 다른가?</h2>
+      
+      <p style="font-size:14px;color:var(--gray-600);line-height:1.75;margin-bottom:24px;">T-test로 상/하위 20% 유저 그룹의 유의미한 차이가 있는 행동 특성 9개를 추출했습니다. 단순히 '고수'와 '초보'로 유저를 일반화할 수 없기에 해당 9개 컬럼을 기준으로 서로 다른 플레이 스타일을 가진 유저 그룹을 분류했습니다. 이때, K-means 클러스터링을 활용해 총 5가지 유저 그룹이 도출되었습니다.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div class="img-frame" style="margin:0;">
+          <img src="images/pubg/Slide 16_9 - 45.png" alt="t-test 유의 컬럼 추출" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'">
+          <div class="img-placeholder"><span style="font-size:24px">📊</span><span>t-test 유의 컬럼 추출</span></div>
+          <div class="img-cap">상하위 20% 그룹 간 t-test 결과</div>
+        </div>
+        <div class="img-frame" style="margin:0;">
+          <img src="images/pubg/Slide 16_9 - 46.png" alt="유의 칼럼 상관성" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'">
+          <div class="img-placeholder"><span style="font-size:24px">🗺</span><span>유의 칼럼 상관성</span></div>
+          <div class="img-cap">유의 칼럼 9개 추출 및 K-Means 클러스터링 적용</div>
+        </div>
+      </div>
+      <div class="exp-task-card" style="margin-bottom:20px; margin-top:10px;">
+        <div class="exp-task-row">
+          <span class="exp-task-label">방법론</span>
+          <div class="exp-task-content">상위/하위 20% 유저 대상 <strong>t-test</strong>로 유의 컬럼 9개 추출 → <strong>K-Means 클러스터링</strong> (Elbow method, n=5)</div>
+        </div>
+      </div>
+
+      <!-- 5개 클러스터 카드 -->
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:24px 0;">
+        <div style="text-align:center;padding:20px 8px;background:#E8434320;border:1px solid #E8434340;border-radius:12px;">
+          <div style="font-size:24px;margin-bottom:6px;">🔫</div>
+          <div style="font-size:13px;font-weight:700;color:var(--black);">퍼펙트 킬러</div>
+          <div style="font-size:10px;color:var(--gray-400);margin-top:2px;">Sharpshooter</div>
+          <div style="font-size:10px;color:var(--gray-600);margin-top:6px;">승률 29%<br>순위 4.6위</div>
+          <div style="margin-top:8px;font-size:9px;padding:2px 6px;background:#E8434330;border-radius:100px;color:#c0392b;display:inline-block;">고수</div>
+        </div>
+        <div style="text-align:center;padding:20px 8px;background:#E8434320;border:1px solid #E8434340;border-radius:12px;">
+          <div style="font-size:24px;margin-bottom:6px;">〰️</div>
+          <div style="font-size:13px;font-weight:700;color:var(--black);">라스트 댄서</div>
+          <div style="font-size:10px;color:var(--gray-400);margin-top:2px;">Strategic</div>
+          <div style="font-size:10px;color:var(--gray-600);margin-top:6px;">승률 12%<br>순위 5.7위</div>
+          <div style="margin-top:8px;font-size:9px;padding:2px 6px;background:#E8434330;border-radius:100px;color:#c0392b;display:inline-block;">고수</div>
+        </div>
+        <div style="text-align:center;padding:20px 8px;background:var(--accent-light);border:1px solid var(--accent);border-radius:12px;">
+          <div style="font-size:24px;margin-bottom:6px;">🏃</div>
+          <div style="font-size:13px;font-weight:700;color:var(--black);">런닝맨</div>
+          <div style="font-size:10px;color:var(--gray-400);margin-top:2px;">Endless Fugitive</div>
+          <div style="font-size:10px;color:var(--gray-600);margin-top:6px;">승률 1%<br>순위 11.1위</div>
+          <div style="margin-top:8px;font-size:9px;padding:2px 6px;background:var(--accent-light);border-radius:100px;color:var(--accent-dark);display:inline-block;">중수</div>
+        </div>
+        <div style="text-align:center;padding:20px 8px;background:var(--accent-light);border:1px solid var(--accent);border-radius:12px;">
+          <div style="font-size:24px;margin-bottom:6px;">🔭</div>
+          <div style="font-size:13px;font-weight:700;color:var(--black);">스나이퍼</div>
+          <div style="font-size:10px;color:var(--gray-400);margin-top:2px;">Longest Kill</div>
+          <div style="font-size:10px;color:var(--gray-600);margin-top:6px;">승률 3%<br>순위 14.7위</div>
+          <div style="margin-top:8px;font-size:9px;padding:2px 6px;background:var(--accent-light);border-radius:100px;color:var(--accent-dark);display:inline-block;">중수</div>
+        </div>
+        <div style="text-align:center;padding:20px 8px;background:#F5E6B820;border:1px solid #D4AC0D40;border-radius:12px;">
+          <div style="font-size:24px;margin-bottom:6px;">🐔</div>
+          <div style="font-size:13px;font-weight:700;color:var(--black);">런치킨</div>
+          <div style="font-size:10px;color:var(--gray-400);margin-top:2px;">Run for Survive</div>
+          <div style="font-size:10px;color:var(--gray-600);margin-top:6px;">승률 0.03%</div>
+          <div style="margin-top:8px;font-size:9px;padding:2px 6px;background:#F5E6B840;border-radius:100px;color:#7D6608;display:inline-block;">초보</div>
+        </div>
+      </div>
+
+      <!-- 클러스터 특징 요약 -->
+      <div class="exp-task-card">
+        <div class="exp-task-row">
+          <span class="exp-task-label">고수</span>
+          <div class="exp-task-content"><strong>퍼펙트 킬러</strong> — 교전을 즐기는 타입, kill/damage 1위 | <strong>라스트 댄서</strong> — 외곽 중심 플레이, 차량 이동거리 1위</div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">중수</span>
+          <div class="exp-task-content"><strong>런닝맨</strong> — 교전 회피, 외곽 중심 이동 | <strong>스나이퍼</strong> — 장거리 사격, 중앙 선점 전략</div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">초보</span>
+          <div class="exp-task-content"><strong>런치킨</strong> — 모든 능력치 하위, 94%가 사살+자기장 사망, boost/heal 사용률 현저히 낮음</div>
+        </div>
+      </div>
+
+      <div style="padding:20px 24px;background:var(--accent-light);border:1px solid var(--accent);border-radius:var(--radius);display:flex;align-items:flex-start;gap:12px;margin-top:20px;">
+        <span style="font-size:18px;flex-shrink:0;line-height:1;">📊</span>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--accent-dark);margin-bottom:4px;letter-spacing:0.5px;">탐구 문제 2 결론</div>
+          <div style="font-size:14px;color:var(--black);font-weight:500;line-height:1.65;">고수와 초보의 게임 플레이는 9가지 특징에서 유의미한 차이가 있으며, K-Means 클러스터링을 통해 퍼펙트 킬러, 라스트 댄서, 런닝맨, 스나이퍼, 런치킨의 5가지 유저 유형으로 구분할 수 있다.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. 탐구문제 3 & Insight -->
+    <div id="pubg-q3" style="margin-bottom:56px;scroll-margin-top:80px;">
+      <div class="section-eyebrow" style="margin-bottom:20px;">06 · Insight — 탐구 문제 3</div>
+      <h2 style="font-size:24px;font-weight:700;letter-spacing:-1px;margin-bottom:20px;">플레이어 수준별 몰입 경험을 위해 어떤 요소가 필요한가?</h2>
+
+      <p style="font-size:14px;color:var(--gray-600);line-height:1.75;margin-bottom:24px;">유저 실력 분포에 비례하도록 AI를 배치하고, 각 수준별 맞춤형 AI 특성을 적용하여 몰입 경험을 높이는 방안을 제안합니다.</p>
+
+      <!-- 고수 맞춤 AI -->
+      <div class="img-frame">
+        <img src="images/pubg/Slide 16_9 - 65.png" alt="문제 정의" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'">
+        <div class="img-placeholder"><span style="font-size:24px">🗺</span><span>고수 AI 봇 특성</span></div>
+  
+      </div>
+      <div class="exp-task-card" style="margin-bottom:16px;">
+        <div style="font-size:14px;font-weight:700;color:var(--black);margin-bottom:12px;">고수 맞춤 AI 특성</div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">Kill</span>
+          <div class="exp-task-content">헤드샷 비율 증가, 장거리 사격 증가 (라스트 댄서 유형 반영)</div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">아이템</span>
+          <div class="exp-task-content">아이템 획득 및 사용 비율 증가</div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">이동</span>
+          <div class="exp-task-content">차량 파괴 행동 증가</div>
+        </div>
+      </div>
+
+      <!-- 중수 맞춤 AI -->
+      <div class="img-frame">
+        <img src="images/pubg/Slide 16_9 - 59.png" alt="문제 정의" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'">
+        <div class="img-placeholder"><span style="font-size:24px">🗺</span><span>중수 AI 봇 특성</span></div>
+      </div>
+      <div class="exp-task-card" style="margin-bottom:16px;">
+        <div style="font-size:14px;font-weight:700;color:var(--black);margin-bottom:12px;">중수 맞춤 AI 특성</div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">Kill</span>
+          <div class="exp-task-content">명중률 감소 / 반샷 → <strong>교전 난이도 감소</strong></div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">스타일</span>
+          <div class="exp-task-content">적극적인 교전 신청 (런닝맨 유형), 초반 위치 싸움 (스나이퍼 유형) → <strong>교전 확률 증가</strong></div>
+        </div>
+      </div>
+
+      <!-- 초보 맞춤 AI -->
+      <div class="img-frame">
+        <img src="images/pubg/Slide 16_9 - 60.png" alt="문제 정의" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'">
+        <div class="img-placeholder"><span style="font-size:24px">🗺</span><span>초보 AI 봇 특성</span></div>
+      </div>
+      <div class="exp-task-card">
+        <div style="font-size:14px;font-weight:700;color:var(--black);margin-bottom:12px;">초보 맞춤 AI 특성</div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">스타일</span>
+          <div class="exp-task-content">초반 비슷한 위치 배치 → <strong>킬 경험 증가</strong> → <strong>유저 정착률 증가 기대</strong></div>
+        </div>
+      </div>
+
+      <div style="padding:20px 24px;background:var(--accent-light);border:1px solid var(--accent);border-radius:var(--radius);display:flex;align-items:flex-start;gap:12px;margin-top:20px;">
+        <span style="font-size:18px;flex-shrink:0;line-height:1;">📊</span>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--accent-dark);margin-bottom:4px;letter-spacing:0.5px;">탐구 문제 3 결론</div>
+          <div style="font-size:14px;color:var(--black);font-weight:500;line-height:1.65;">유저 실력 분포에 비례하도록 AI를 배치하고, 고수·중수·초보 각 수준에 맞는 AI 행동 특성을 적용하면 몰입 경험이 향상되어 유저 정착률 증가를 기대할 수 있다.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Conclusion -->
+    <div style="margin-bottom:40px;">
+      <div class="section-eyebrow" style="margin-bottom:20px;">07 · Conclusion</div>
+      <h2 style="font-size:24px;font-weight:700;letter-spacing:-1px;margin-bottom:20px;">탐구 문제 결론</h2>
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="padding:20px 24px;background:var(--gray-50);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;">
+          <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;">Q1</div>
+          <div style="font-size:14px;font-weight:600;color:var(--black);margin-bottom:4px;">매치에 참여하는 AI는 유저의 실력을 적절히 반영하고 있는가?</div>
+          <div style="font-size:13px;color:var(--gray-600);">→ <strong>그렇지 않다.</strong> user와 AI의 rank 분포가 불균형</div>
+        </div>
+        <div style="padding:20px 24px;background:var(--gray-50);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;">
+          <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;">Q2</div>
+          <div style="font-size:14px;font-weight:600;color:var(--black);margin-bottom:4px;">고수와 초보의 게임 플레이는 어떤 점이 다른가?</div>
+          <div style="font-size:13px;color:var(--gray-600);">→ <strong>9가지 특징</strong>에서 차이, 총 <strong>5가지 수준</strong>으로 유저 구분 가능</div>
+        </div>
+        <div style="padding:20px 24px;background:var(--gray-50);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;">
+          <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;">Q3</div>
+          <div style="font-size:14px;font-weight:600;color:var(--black);margin-bottom:4px;">플레이어 수준별 몰입 경험을 위해 어떤 요소가 필요한가?</div>
+          <div style="font-size:13px;color:var(--gray-600);">→ 유저 실력 분포에 비례하도록 AI를 배치하고, 맞춤형 AI 특성을 통해 <strong>몰입 경험 상승 → 유저 정착률 증가</strong></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+
+  <footer style="margin-top:0;">
+    <span>최윤아 · Product Manager</span>
+    <span>dudusiz3368@gmail.com</span>
+  </footer>
+
+</div><!-- /project-pubg -->
+
 </div><!-- #project-detail -->
 
-<script>
-// ── PAGE SWITCH ──
-function openProject(id) {
-  document.getElementById('main-page').style.display = 'none';
-  document.getElementById('project-detail').classList.add('visible');
-  window.scrollTo(0, 0);
-  setActiveNav('projects');
-}
+<!-- IMAGE MODAL -->
+<div class="img-modal-overlay" id="imgModal" onclick="closeModal()">
+  <button class="img-modal-close" onclick="closeModal()">&times;</button>
+  <img id="imgModalImg" src="" alt="">
+</div>
 
-function closeProject() {
-  document.getElementById('project-detail').classList.remove('visible');
-  document.getElementById('main-page').style.display = '';
-  window.scrollTo(0, 0);
-  setActiveNav('projects');
-}
-
-function showMain(sectionId) {
-  // If on project detail, close it first
-  if (document.getElementById('project-detail').classList.contains('visible')) {
-    closeProject();
-  }
-  const el = document.getElementById(sectionId);
-  if (el) {
-    const offset = el.getBoundingClientRect().top + window.scrollY - 72;
-    window.scrollTo({ top: offset, behavior: 'smooth' });
-  }
-  setActiveNav(sectionId);
-}
-
-function setActiveNav(id) {
-  document.querySelectorAll('.nav-item').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.section === id);
-  });
-}
-
-// ── NAV ACTIVE ON SCROLL (main page) ──
-const sections = ['about','impact','education','experience','awards','activities','projects','contact']
-  .map(id => document.getElementById(id)).filter(Boolean);
-
-const navObs = new IntersectionObserver(entries => {
-  if (document.getElementById('project-detail').classList.contains('visible')) return;
-  entries.forEach(e => {
-    if (e.isIntersecting) setActiveNav(e.target.id);
-  });
-}, { rootMargin: '-60px 0px -80% 0px', threshold: 0 });
-sections.forEach(s => navObs.observe(s));
-
-// ── TOC ACTIVE ON SCROLL (project detail) ──
-const tocLinks = document.querySelectorAll('.detail-toc .toc-link');
-const projSections = document.querySelectorAll('.proj-body-inner [id^="proj-"]');
-
-const tocObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      tocLinks.forEach(l => l.classList.remove('active'));
-      const link = document.querySelector(`.detail-toc .toc-link[href="#${e.target.id}"]`);
-      if (link) link.classList.add('active');
-    }
-  });
-}, { rootMargin: '-76px 0px -60% 0px', threshold: 0 });
-projSections.forEach(s => tocObs.observe(s));
-</script>
+<script src="script.js"></script>
 </body>
 </html>
