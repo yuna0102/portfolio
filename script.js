@@ -1,36 +1,5 @@
-// ── ROUTING ──
-function getBasePath() {
-  let p = location.pathname;
-  p = p.replace(/\/(houme|pubg)\/?$/, '/');
-  if (!p.endsWith('/')) p += '/';
-  return p;
-}
-
-// ── PAGE SWITCH ──
-function openProject(id, skipPush) {
-  document.getElementById('main-page').style.display = 'none';
-  document.querySelectorAll('.project-page').forEach(p => p.style.display = 'none');
-  const target = document.getElementById('project-' + id);
-  if (target) target.style.display = '';
-  document.getElementById('project-detail').classList.add('visible');
-  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  setActiveNav('projects');
-  if (!skipPush) history.pushState({ project: id }, '', getBasePath() + id);
-}
-
-function closeProject(skipPush) {
-  document.getElementById('project-detail').classList.remove('visible');
-  document.querySelectorAll('.project-page').forEach(p => p.style.display = 'none');
-  document.getElementById('main-page').style.display = '';
-  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  setActiveNav('projects');
-  if (!skipPush) history.pushState({}, '', getBasePath());
-}
-
+// ── NAV SCROLL (main page only) ──
 function showMain(sectionId) {
-  if (document.getElementById('project-detail').classList.contains('visible')) {
-    closeProject();
-  }
   const el = document.getElementById(sectionId);
   if (el) {
     const offset = el.getBoundingClientRect().top + window.scrollY - 80;
@@ -46,57 +15,35 @@ function setActiveNav(id) {
   });
 }
 
-// ── HANDLE BROWSER BACK/FORWARD ──
-window.addEventListener('popstate', (e) => {
-  if (e.state && e.state.project) {
-    openProject(e.state.project, true);
-  } else if (document.getElementById('project-detail').classList.contains('visible')) {
-    closeProject(true);
-  }
-});
-
-// ── HANDLE DIRECT URL ACCESS ──
-(function() {
-  const params = new URLSearchParams(location.search);
-  const p = params.get('p');
-  if (p && document.getElementById('project-' + p)) {
-    history.replaceState({ project: p }, '', getBasePath() + p);
-    openProject(p, true);
-    return;
-  }
-  const slug = location.pathname.split('/').filter(Boolean).pop();
-  if (slug && document.getElementById('project-' + slug)) {
-    history.replaceState({ project: slug }, '', location.pathname);
-    openProject(slug, true);
-  }
-})();
-
 // ── NAV ACTIVE ON SCROLL (main page) ──
 const sections = ['about','impact','education','experience','awards','activities','projects','contact']
   .map(id => document.getElementById(id)).filter(Boolean);
 
-const navObs = new IntersectionObserver(entries => {
-  if (document.getElementById('project-detail').classList.contains('visible')) return;
-  entries.forEach(e => {
-    if (e.isIntersecting) setActiveNav(e.target.id);
-  });
-}, { rootMargin: '-68px 0px -80% 0px', threshold: 0 });
-sections.forEach(s => navObs.observe(s));
+if (sections.length) {
+  const navObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) setActiveNav(e.target.id);
+    });
+  }, { rootMargin: '-68px 0px -80% 0px', threshold: 0 });
+  sections.forEach(s => navObs.observe(s));
+}
 
 // ── TOC ACTIVE ON SCROLL (project detail) ──
 const tocLinks = document.querySelectorAll('.detail-toc .toc-link');
 const projSections = document.querySelectorAll('.proj-body-inner [id^="proj-"]');
 
-const tocObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      tocLinks.forEach(l => l.classList.remove('active'));
-      const link = document.querySelector(`.detail-toc .toc-link[href="#${e.target.id}"]`);
-      if (link) link.classList.add('active');
-    }
-  });
-}, { rootMargin: '-84px 0px -60% 0px', threshold: 0 });
-projSections.forEach(s => tocObs.observe(s));
+if (projSections.length) {
+  const tocObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        tocLinks.forEach(l => l.classList.remove('active'));
+        const link = document.querySelector(`.detail-toc .toc-link[href="#${e.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-84px 0px -60% 0px', threshold: 0 });
+  projSections.forEach(s => tocObs.observe(s));
+}
 
 // ── IMAGE MODAL ──
 function openModal(src) {

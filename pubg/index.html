@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>배틀그라운드 AI 분석 — 최윤아 포트폴리오</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-pill" id="main-nav">
+    <a class="nav-item" href="../#about" data-section="about">
+      <span class="nav-dot"></span>소개
+    </a>
+    <a class="nav-item" href="../#education" data-section="education">
+      <span class="nav-dot"></span>학력/경력
+    </a>
+    <a class="nav-item" href="../#awards" data-section="awards">
+      <span class="nav-dot"></span>수상
+    </a>
+    <a class="nav-item" href="../#activities" data-section="activities">
+      <span class="nav-dot"></span>활동
+    </a>
+    <a class="nav-item active" href="../#projects" data-section="projects">
+      <span class="nav-dot"></span>프로젝트
+    </a>
+    <a class="nav-item" href="../#contact" data-section="contact">
+      <span class="nav-dot"></span>연락처
+    </a>
+  </div>
+</nav>
+
+<div class="page" style="padding-top:68px;">
+<div class="project-page" id="project-pubg" style="max-width:900px;margin:0 auto;padding:0 40px 80px;">
+
+  <button class="detail-back" onclick="window.location.href='../'">
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2L4 7l5 5"/></svg>
+    프로젝트 목록으로
+  </button>
+
+  <!-- HEADER -->
+  <div class="detail-header">
+    <div class="detail-badge-row">
+      <span class="detail-badge">Data Analysis</span>
+      <span class="detail-badge">DArt-B 학술제</span>
+      <span class="detail-badge">2023 CAU</span>
+    </div>
+    <h1 class="detail-title">🎮 배틀그라운드 유저 실력별<br>AI 행동 특성 제언</h1>
+    <p class="detail-intro">배틀그라운드의 AI 봇이 유저 실력을 적절히 반영하지 못하는 문제를 발견하고, PUBG API 110만 건의 플레이 로그를 분석하여 유저를 5개 유형으로 클러스터링한 뒤, 각 수준에 맞는 AI 행동 특성을 제안한 데이터 분석 프로젝트</p>
+
+    <div class="detail-meta-grid">
+      <dl class="detail-meta-cell"><dt>기간</dt><dd>2023.09 – 2024.02</dd></dl>
+      <dl class="detail-meta-cell"><dt>역할</dt><dd>데이터 분석</dd></dl>
+      <dl class="detail-meta-cell"><dt>팀</dt><dd>4명</dd></dl>
+      <dl class="detail-meta-cell"><dt>데이터</dt><dd>약 110만 건</dd></dl>
+    </div>
+
+    <div class="process-flow" style="margin-bottom:28px;">
+      <span class="process-step done">Problem Recognition</span><span class="process-arrow">→</span>
+      <span class="process-step done">Problem Definition</span><span class="process-arrow">→</span>
+      <span class="process-step done">Data Collection</span><span class="process-arrow">→</span>
+      <span class="process-step done">Preprocessing</span><span class="process-arrow">→</span>
+      <span class="process-step done">Analysis</span><span class="process-arrow">→</span>
+      <span class="process-step done">Insight</span><span class="process-arrow">→</span>
+      <span class="process-step done">Conclusion</span>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi-cell">
+        <div class="kpi-val">110만+</div>
+        <div class="kpi-lbl">분석 데이터 건수</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-val">5개 유형</div>
+        <div class="kpi-lbl">유저 클러스터 도출</div>
+      </div>
+      <div class="kpi-cell">
+        <div class="kpi-val">3단계</div>
+        <div class="kpi-lbl">맞춤 AI 난이도 제안</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div style="padding: 48px 0;">
+
+    <!-- 1. Problem Recognition -->
+    <div style="margin-bottom:56px;">
+      <div class="section-eyebrow" style="margin-bottom:20px;">01 · Problem Recognition</div>
+
+      <h2 style="font-size:24px;font-weight:700;letter-spacing:-1px;margin-bottom:20px;">플레이 수준에 맞는 몰입 경험</h2>
+      <div class="img-frame">
+        <img src="../images/pubg/동접자추세.png" alt="문제 정의" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'">
+        <div class="img-placeholder"><span style="font-size:24px">🗺</span><span>동접자 하락 그래프</span></div>
+        <div class="img-cap">매년 하락하고 있는 배틀그라운드 동시 접속자 추세</div>
+      </div>
+      
+      <div class="exp-task-card">
+        <div class="exp-task-row">
+          <span class="exp-task-label">배경</span>
+          <div class="exp-task-content">배틀그라운드는 2018년 이후 동시접속자 수가 지속적으로 하락. 하락 원인을 찾기 위해 게임 데이터 EDA 진행</div>
+        </div>
+      </div>
+      <div class="img-frame">
+        <img src="../images/pubg/Slide 16_9 - 32.png" alt="문제 정의" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'">
+        <div class="img-placeholder"><span style="font-size:24px">🗺</span><span>배틀그라운드 내 고수 분포</span></div>
+        <div class="img-cap">게임 데이터 확인 결과, 초보 유저 비율이 매우 낮음을 발견</div>
+      </div>
+      <div class="exp-task-card">
+        <div class="exp-task-row">
+          <span class="exp-task-label">현황 확인</span>
+          <div class="exp-task-content">실제로 실력별 유저 분포를 살펴본 결과, 고수에 밀집되어 초보 플레이어의 플레이 비율이 매우 낮다는 것을 발견</div>
+        </div>
+      </div>
+    </div>
+      <div class="img-frame">
+        <img src="../images/pubg/Slide 16_9 - 30.png" alt="문제 정의" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'">
+        <div class="img-placeholder"><span style="font-size:24px">🗺</span><span>유저 실력별 경험 그래프</span></div>
+        <div class="img-cap">게임 실력과 맞지 않는 플레이 난이도는 몰입 경험을 떨어뜨리는 문제</div>
+      </div>
+      <div class="exp-task-card">
+        <div class="exp-task-row">
+          <span class="exp-task-label">문제 가설</span>
+          <div class="exp-task-content">
+            <ul>
+              <li>초보에게 어려운 난이도의 게임은 <strong>'불안함'</strong>을, 고수에게 쉬운 난이도는 <strong>'지루함'</strong>을 제공함</li>
+              <li>이때 배틀그라운드는 매칭마다 부족한 인원을 AI 봇으로 충당하고 있음</li>
+              <li>그러나 현재 고수 유저에게는 AI가 너무 쉽고, 초보 유저에게는 AI가 너무 어려운 구조</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding:20px 24px;background:var(--accent-light);border:1px solid var(--accent);border-radius:var(--radius);display:flex;align-items:flex-start;gap:12px;">
+        <span style="font-size:18px;flex-shrink:0;line-height:1;">💡</span>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--accent-dark);margin-bottom:4px;letter-spacing:0.5px;">가설 설정</div>
+          <div style="font-size:14px;color:var(--black);font-weight:500;line-height:1.65;">유저의 실력별로 AI봇의 행동 양식을 고도화하면, 초보와 고수가 모두 만족하는 게임 플레이가 가능할 것이다.</div>
+        </div>
+      </div>
+      
+
+    <!-- 2. Problem Definition -->
+    <div style="margin-top:56px; margin-bottom:56px;">
+      <div class="section-eyebrow" style="margin-bottom:20px;">02 · Problem Definition</div>
+      <h2 style="font-size:24px;font-weight:700;letter-spacing:-1px;margin-bottom:20px;">프로젝트 탐구 문제</h2>
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="padding:20px 24px;background:var(--gray-50);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;">
+          <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;">H1</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;">
+            <div style="font-size:14px;font-weight:600;color:var(--black);">매치에 참여하는 AI는 유저의 실력을 적절히 반영하지 못하고 있을 것이다.</div>
+            <a href="#pubg-q1" style="font-size:12px;color:var(--gray-400);text-decoration:none;white-space:nowrap;flex-shrink:0;font-weight:500;transition:color 0.15s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--gray-400)'">자세히 보기 →</a>
+          </div>
+        </div>
+        <div style="padding:20px 24px;background:var(--gray-50);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;">
+          <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;">H2</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;">
+            <div style="font-size:14px;font-weight:600;color:var(--black);">고수와 초보의 게임 플레이는 유의미하게 다를 것이다.</div>
+            <a href="#pubg-q2" style="font-size:12px;color:var(--gray-400);text-decoration:none;white-space:nowrap;flex-shrink:0;font-weight:500;transition:color 0.15s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--gray-400)'">자세히 보기 →</a>
+          </div>
+        </div>
+        <div style="padding:20px 24px;background:var(--gray-50);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;">
+          <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;">H3</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;">
+            <div style="font-size:14px;font-weight:600;color:var(--black);">플레이어 수준별 맞춤 AI 행동 특성을 적용하면 몰입 경험이 향상될 것이다.</div>
+            <a href="#pubg-q3" style="font-size:12px;color:var(--gray-400);text-decoration:none;white-space:nowrap;flex-shrink:0;font-weight:500;transition:color 0.15s;" onmouseover="this.style.color='var(--black)'" onmouseout="this.style.color='var(--gray-400)'">자세히 보기 →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Data Collection -->
+    <div style="margin-top:56px; margin-bottom:56px;">
+      <div class="section-eyebrow" style="margin-bottom:20px;">03 · Data Collection</div>
+      <h2 style="font-size:24px;font-weight:700;letter-spacing:-1px;margin-bottom:20px;">PUBG API 데이터 수집</h2>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
+        <div class="impact-card">
+          <div class="impact-card-eyebrow">데이터 소스</div>
+          <div class="impact-card-title">PUBG 오픈 API 가공</div>
+          <div class="impact-card-desc">console, steam, kakao 3개 채널</div>
+        </div>
+        <div class="impact-card">
+          <div class="impact-card-eyebrow">수집 규모</div>
+          <div class="impact-card-title">약 110만 건</div>
+          <div class="impact-card-desc">2023.11.01 – 11.14 (2주간 게임 데이터)</div>
+        </div>
+      </div>
+
+      <table class="tbl">
+        <thead>
+          <tr><th>분류</th><th>변수명</th><th>설명</th></tr>
+        </thead>
+        <tbody>
+          <tr><td rowspan="4" style="font-weight:600;color:var(--black);">Kill 관련</td><td><code>damageDealt</code></td><td>가한 데미지량</td></tr>
+          <tr><td><code>kills</code></td><td>킬 수</td></tr>
+          <tr><td><code>killStreaks</code></td><td>연속 킬 수</td></tr>
+          <tr><td><code>killPlace</code></td><td>킬 기준 순위</td></tr>
+          <tr><td rowspan="3" style="font-weight:600;color:var(--black);">아이템 관련</td><td><code>boosts</code></td><td>부스트 아이템 사용량</td></tr>
+          <tr><td><code>heals</code></td><td>회복 아이템 사용량</td></tr>
+          <tr><td><code>weaponAcquired</code></td><td>무기 획득량</td></tr>
+          <tr><td rowspan="2" style="font-weight:600;color:var(--black);">이동 관련</td><td><code>walkDistance</code></td><td>도보 이동 거리</td></tr>
+          <tr><td><code>rideDistance</code></td><td>차량 이동 거리</td></tr>
+          <tr><td style="font-weight:600;color:var(--black);">결과</td><td><code>winPlace</code></td><td>게임 최종 순위</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 4. 탐구문제 1 -->
+    <div id="pubg-q1" style="margin-bottom:56px;scroll-margin-top:80px;">
+      <div class="section-eyebrow" style="margin-bottom:20px;">04 · Analysis — 탐구 문제 1</div>
+      <h2 style="font-size:24px;font-weight:700;letter-spacing:-1px;margin-bottom:20px;">매치에 참여하는 AI는 유저의 실력을 적절히 반영하고 있는가?</h2>
+
+      <!-- Step 1: 순위 등급화 -->
+      <h3 style="font-size:16px;font-weight:600;color:var(--black);margin-bottom:12px;">Step 1 · 순위 등급화</h3>
+      <p style="font-size:13.5px;color:var(--gray-600);line-height:1.7;margin-bottom:16px;">5판 이상 플레이한 유저 대상, 매치 평균 순위를 10단계 rank로 등급화 했습니다.</p>
+
+      <table class="tbl" style="max-width:360px;margin-bottom:32px;">
+        <thead><tr><th>winPlace 범위</th><th>rank</th></tr></thead>
+        <tbody>
+          <tr><td>1 – 10</td><td>1 (최상위)</td></tr>
+          <tr><td>11 – 20</td><td>2</td></tr>
+          <tr><td>21 – 30</td><td>3</td></tr>
+          <tr><td>41 – 50</td><td>5</td></tr>
+          <tr><td>71 – 80</td><td>8</td></tr>
+          <tr><td>91 – 100</td><td>10 (최하위)</td></tr>
+        </tbody>
+      </table>
+
+      <!-- Step 2: 회귀 모델 -->
+      <h3 style="font-size:16px;font-weight:600;color:var(--black);margin-bottom:12px;">Step 2 · rank 예측 회귀 모델</h3>
+      <p style="font-size:13.5px;color:var(--gray-600);line-height:1.7;margin-bottom:16px;">AI 봇의 rank 예측을 위해 회귀 모델을 활용 했습니다.</p>
+      <div class="exp-task-card" style="margin-bottom:20px;">
+        <div class="exp-task-row">
+          <span class="exp-task-label">목적</span>
+          <div class="exp-task-content">AI 봇과 실제 유저의 플레이 로그를 동일한 모델에 입력하여 <strong>rank를 예측</strong>하고, 양쪽 분포를 비교</div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">모델</span>
+          <div class="exp-task-content">6개 회귀 모델 비교: Linear, Ridge, Lasso, <strong>Random Forest</strong>, Decision Tree, K-Neighbor</div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">검증</span>
+          <div class="exp-task-content"><strong>10-Fold Cross Validation</strong> / RMSE 기준 → <strong>Random Forest가 최저 RMSE</strong>로 최적 모델 선정</div>
+        </div>
+      </div>
+
+      <!-- Step 3: 결과 -->
+      <h3 style="font-size:16px;font-weight:600;color:var(--black);margin-bottom:12px;">Step 3 · 유저 vs AI rank 분포 비교</h3>
+      <p style="font-size:13.5px;color:var(--gray-600);line-height:1.7;margin-bottom:16px;">Random Forest로 예측한 유저 rank 분포(빨강)와 AI rank 분포(파랑)를 매치별로 비교한 결과, <strong>두 분포가 크게 불일치</strong>하는 것을 확인했습니다.</p>
+      <div class="img-frame">
+        <img src="../images/pubg/Slide 16_9 - 43.png" alt="유저와 AI봇 간 실력 불일치" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'">
+        <div class="img-placeholder"><span style="font-size:24px">🗺</span><span>유저와 AI봇 간 실력 불일치</span></div>
+        <div class="img-cap">매칭 데이터 확인 결과, 유저 Rank와 AI Rank가 비례하지 않음</div>
+      </div>
+      <div style="padding:20px 24px;background:var(--accent-light);border:1px solid var(--accent);border-radius:var(--radius);display:flex;align-items:flex-start;gap:12px;">
+        <span style="font-size:18px;flex-shrink:0;line-height:1;">📊</span>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--accent-dark);margin-bottom:4px;letter-spacing:0.5px;">탐구 문제 1 결론</div>
+          <div style="font-size:14px;color:var(--black);font-weight:500;line-height:1.65;">AI는 유저 실력을 적절히 반영하지 못하고 있다. 유저 rank 분포와 AI rank 분포가 불균형하며, 현재 AI 봇은 실력 수준에 관계없이 비슷한 행동 패턴을 보인다.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. 탐구문제 2 -->
+    <div id="pubg-q2" style="margin-bottom:56px;scroll-margin-top:80px;">
+      <div class="section-eyebrow" style="margin-bottom:20px;">05 · Analysis — 탐구 문제 2</div>
+      <h2 style="font-size:24px;font-weight:700;letter-spacing:-1px;margin-bottom:20px;">고수와 초보의 게임 플레이는 어떤 점이 다른가?</h2>
+      
+      <p style="font-size:14px;color:var(--gray-600);line-height:1.75;margin-bottom:24px;">T-test로 상/하위 20% 유저 그룹의 유의미한 차이가 있는 행동 특성 9개를 추출했습니다. 단순히 '고수'와 '초보'로 유저를 일반화할 수 없기에 해당 9개 컬럼을 기준으로 서로 다른 플레이 스타일을 가진 유저 그룹을 분류했습니다. 이때, K-means 클러스터링을 활용해 총 5가지 유저 그룹이 도출되었습니다.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div class="img-frame" style="margin:0;">
+          <img src="../images/pubg/Slide 16_9 - 45.png" alt="t-test 유의 컬럼 추출" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'">
+          <div class="img-placeholder"><span style="font-size:24px">📊</span><span>t-test 유의 컬럼 추출</span></div>
+          <div class="img-cap">상하위 20% 그룹 간 t-test 결과</div>
+        </div>
+        <div class="img-frame" style="margin:0;">
+          <img src="../images/pubg/Slide 16_9 - 46.png" alt="유의 칼럼 상관성" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'">
+          <div class="img-placeholder"><span style="font-size:24px">🗺</span><span>유의 칼럼 상관성</span></div>
+          <div class="img-cap">유의 칼럼 9개 추출 및 K-Means 클러스터링 적용</div>
+        </div>
+      </div>
+      <div class="exp-task-card" style="margin-bottom:20px; margin-top:10px;">
+        <div class="exp-task-row">
+          <span class="exp-task-label">방법론</span>
+          <div class="exp-task-content">상위/하위 20% 유저 대상 <strong>t-test</strong>로 유의 컬럼 9개 추출 → <strong>K-Means 클러스터링</strong> (Elbow method, n=5)</div>
+        </div>
+      </div>
+
+      <!-- 5개 클러스터 카드 -->
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:24px 0;">
+        <div style="text-align:center;padding:20px 8px;background:#E8434320;border:1px solid #E8434340;border-radius:12px;">
+          <div style="font-size:24px;margin-bottom:6px;">🔫</div>
+          <div style="font-size:13px;font-weight:700;color:var(--black);">퍼펙트 킬러</div>
+          <div style="font-size:10px;color:var(--gray-400);margin-top:2px;">Sharpshooter</div>
+          <div style="font-size:10px;color:var(--gray-600);margin-top:6px;">승률 29%<br>순위 4.6위</div>
+          <div style="margin-top:8px;font-size:9px;padding:2px 6px;background:#E8434330;border-radius:100px;color:#c0392b;display:inline-block;">고수</div>
+        </div>
+        <div style="text-align:center;padding:20px 8px;background:#E8434320;border:1px solid #E8434340;border-radius:12px;">
+          <div style="font-size:24px;margin-bottom:6px;">〰️</div>
+          <div style="font-size:13px;font-weight:700;color:var(--black);">라스트 댄서</div>
+          <div style="font-size:10px;color:var(--gray-400);margin-top:2px;">Strategic</div>
+          <div style="font-size:10px;color:var(--gray-600);margin-top:6px;">승률 12%<br>순위 5.7위</div>
+          <div style="margin-top:8px;font-size:9px;padding:2px 6px;background:#E8434330;border-radius:100px;color:#c0392b;display:inline-block;">고수</div>
+        </div>
+        <div style="text-align:center;padding:20px 8px;background:var(--accent-light);border:1px solid var(--accent);border-radius:12px;">
+          <div style="font-size:24px;margin-bottom:6px;">🏃</div>
+          <div style="font-size:13px;font-weight:700;color:var(--black);">런닝맨</div>
+          <div style="font-size:10px;color:var(--gray-400);margin-top:2px;">Endless Fugitive</div>
+          <div style="font-size:10px;color:var(--gray-600);margin-top:6px;">승률 1%<br>순위 11.1위</div>
+          <div style="margin-top:8px;font-size:9px;padding:2px 6px;background:var(--accent-light);border-radius:100px;color:var(--accent-dark);display:inline-block;">중수</div>
+        </div>
+        <div style="text-align:center;padding:20px 8px;background:var(--accent-light);border:1px solid var(--accent);border-radius:12px;">
+          <div style="font-size:24px;margin-bottom:6px;">🔭</div>
+          <div style="font-size:13px;font-weight:700;color:var(--black);">스나이퍼</div>
+          <div style="font-size:10px;color:var(--gray-400);margin-top:2px;">Longest Kill</div>
+          <div style="font-size:10px;color:var(--gray-600);margin-top:6px;">승률 3%<br>순위 14.7위</div>
+          <div style="margin-top:8px;font-size:9px;padding:2px 6px;background:var(--accent-light);border-radius:100px;color:var(--accent-dark);display:inline-block;">중수</div>
+        </div>
+        <div style="text-align:center;padding:20px 8px;background:#F5E6B820;border:1px solid #D4AC0D40;border-radius:12px;">
+          <div style="font-size:24px;margin-bottom:6px;">🐔</div>
+          <div style="font-size:13px;font-weight:700;color:var(--black);">런치킨</div>
+          <div style="font-size:10px;color:var(--gray-400);margin-top:2px;">Run for Survive</div>
+          <div style="font-size:10px;color:var(--gray-600);margin-top:6px;">승률 0.03%</div>
+          <div style="margin-top:8px;font-size:9px;padding:2px 6px;background:#F5E6B840;border-radius:100px;color:#7D6608;display:inline-block;">초보</div>
+        </div>
+      </div>
+
+      <!-- 클러스터 특징 요약 -->
+      <div class="exp-task-card">
+        <div class="exp-task-row">
+          <span class="exp-task-label">고수</span>
+          <div class="exp-task-content"><strong>퍼펙트 킬러</strong> — 교전을 즐기는 타입, kill/damage 1위 | <strong>라스트 댄서</strong> — 외곽 중심 플레이, 차량 이동거리 1위</div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">중수</span>
+          <div class="exp-task-content"><strong>런닝맨</strong> — 교전 회피, 외곽 중심 이동 | <strong>스나이퍼</strong> — 장거리 사격, 중앙 선점 전략</div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">초보</span>
+          <div class="exp-task-content"><strong>런치킨</strong> — 모든 능력치 하위, 94%가 사살+자기장 사망, boost/heal 사용률 현저히 낮음</div>
+        </div>
+      </div>
+
+      <div style="padding:20px 24px;background:var(--accent-light);border:1px solid var(--accent);border-radius:var(--radius);display:flex;align-items:flex-start;gap:12px;margin-top:20px;">
+        <span style="font-size:18px;flex-shrink:0;line-height:1;">📊</span>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--accent-dark);margin-bottom:4px;letter-spacing:0.5px;">탐구 문제 2 결론</div>
+          <div style="font-size:14px;color:var(--black);font-weight:500;line-height:1.65;">고수와 초보의 게임 플레이는 9가지 특징에서 유의미한 차이가 있으며, K-Means 클러스터링을 통해 퍼펙트 킬러, 라스트 댄서, 런닝맨, 스나이퍼, 런치킨의 5가지 유저 유형으로 구분할 수 있다.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. 탐구문제 3 & Insight -->
+    <div id="pubg-q3" style="margin-bottom:56px;scroll-margin-top:80px;">
+      <div class="section-eyebrow" style="margin-bottom:20px;">06 · Insight — 탐구 문제 3</div>
+      <h2 style="font-size:24px;font-weight:700;letter-spacing:-1px;margin-bottom:20px;">플레이어 수준별 몰입 경험을 위해 어떤 요소가 필요한가?</h2>
+
+      <p style="font-size:14px;color:var(--gray-600);line-height:1.75;margin-bottom:24px;">유저 실력 분포에 비례하도록 AI를 배치하고, 각 수준별 맞춤형 AI 특성을 적용하여 몰입 경험을 높이는 방안을 제안합니다.</p>
+
+      <!-- 고수 맞춤 AI -->
+      <div class="img-frame">
+        <img src="../images/pubg/Slide 16_9 - 65.png" alt="문제 정의" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'">
+        <div class="img-placeholder"><span style="font-size:24px">🗺</span><span>고수 AI 봇 특성</span></div>
+  
+      </div>
+      <div class="exp-task-card" style="margin-bottom:16px;">
+        <div style="font-size:14px;font-weight:700;color:var(--black);margin-bottom:12px;">고수 맞춤 AI 특성</div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">Kill</span>
+          <div class="exp-task-content">헤드샷 비율 증가, 장거리 사격 증가 (라스트 댄서 유형 반영)</div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">아이템</span>
+          <div class="exp-task-content">아이템 획득 및 사용 비율 증가</div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">이동</span>
+          <div class="exp-task-content">차량 파괴 행동 증가</div>
+        </div>
+      </div>
+
+      <!-- 중수 맞춤 AI -->
+      <div class="img-frame">
+        <img src="../images/pubg/Slide 16_9 - 59.png" alt="문제 정의" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'">
+        <div class="img-placeholder"><span style="font-size:24px">🗺</span><span>중수 AI 봇 특성</span></div>
+      </div>
+      <div class="exp-task-card" style="margin-bottom:16px;">
+        <div style="font-size:14px;font-weight:700;color:var(--black);margin-bottom:12px;">중수 맞춤 AI 특성</div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">Kill</span>
+          <div class="exp-task-content">명중률 감소 / 반샷 → <strong>교전 난이도 감소</strong></div>
+        </div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">스타일</span>
+          <div class="exp-task-content">적극적인 교전 신청 (런닝맨 유형), 초반 위치 싸움 (스나이퍼 유형) → <strong>교전 확률 증가</strong></div>
+        </div>
+      </div>
+
+      <!-- 초보 맞춤 AI -->
+      <div class="img-frame">
+        <img src="../images/pubg/Slide 16_9 - 60.png" alt="문제 정의" onerror="this.style.display='none';this.parentElement.querySelector('.img-placeholder').style.display='flex'">
+        <div class="img-placeholder"><span style="font-size:24px">🗺</span><span>초보 AI 봇 특성</span></div>
+      </div>
+      <div class="exp-task-card">
+        <div style="font-size:14px;font-weight:700;color:var(--black);margin-bottom:12px;">초보 맞춤 AI 특성</div>
+        <div class="exp-task-row">
+          <span class="exp-task-label">스타일</span>
+          <div class="exp-task-content">초반 비슷한 위치 배치 → <strong>킬 경험 증가</strong> → <strong>유저 정착률 증가 기대</strong></div>
+        </div>
+      </div>
+
+      <div style="padding:20px 24px;background:var(--accent-light);border:1px solid var(--accent);border-radius:var(--radius);display:flex;align-items:flex-start;gap:12px;margin-top:20px;">
+        <span style="font-size:18px;flex-shrink:0;line-height:1;">📊</span>
+        <div>
+          <div style="font-size:12px;font-weight:700;color:var(--accent-dark);margin-bottom:4px;letter-spacing:0.5px;">탐구 문제 3 결론</div>
+          <div style="font-size:14px;color:var(--black);font-weight:500;line-height:1.65;">유저 실력 분포에 비례하도록 AI를 배치하고, 고수·중수·초보 각 수준에 맞는 AI 행동 특성을 적용하면 몰입 경험이 향상되어 유저 정착률 증가를 기대할 수 있다.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Conclusion -->
+    <div style="margin-bottom:40px;">
+      <div class="section-eyebrow" style="margin-bottom:20px;">07 · Conclusion</div>
+      <h2 style="font-size:24px;font-weight:700;letter-spacing:-1px;margin-bottom:20px;">탐구 문제 결론</h2>
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="padding:20px 24px;background:var(--gray-50);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;">
+          <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;">Q1</div>
+          <div style="font-size:14px;font-weight:600;color:var(--black);margin-bottom:4px;">매치에 참여하는 AI는 유저의 실력을 적절히 반영하고 있는가?</div>
+          <div style="font-size:13px;color:var(--gray-600);">→ <strong>그렇지 않다.</strong> user와 AI의 rank 분포가 불균형</div>
+        </div>
+        <div style="padding:20px 24px;background:var(--gray-50);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;">
+          <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;">Q2</div>
+          <div style="font-size:14px;font-weight:600;color:var(--black);margin-bottom:4px;">고수와 초보의 게임 플레이는 어떤 점이 다른가?</div>
+          <div style="font-size:13px;color:var(--gray-600);">→ <strong>9가지 특징</strong>에서 차이, 총 <strong>5가지 수준</strong>으로 유저 구분 가능</div>
+        </div>
+        <div style="padding:20px 24px;background:var(--gray-50);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;">
+          <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:6px;">Q3</div>
+          <div style="font-size:14px;font-weight:600;color:var(--black);margin-bottom:4px;">플레이어 수준별 몰입 경험을 위해 어떤 요소가 필요한가?</div>
+          <div style="font-size:13px;color:var(--gray-600);">→ 유저 실력 분포에 비례하도록 AI를 배치하고, 맞춤형 AI 특성을 통해 <strong>몰입 경험 상승 → 유저 정착률 증가</strong></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+
+  <footer style="margin-top:0;">
+    <span>최윤아 · Product Manager</span>
+    <span>dudusiz3368@gmail.com</span>
+  </footer>
+
+</div><!-- /project-pubg -->
+</div>
+
+<!-- IMAGE MODAL -->
+<div class="img-modal-overlay" id="imgModal" onclick="closeModal()">
+  <button class="img-modal-close" onclick="closeModal()">&times;</button>
+  <img id="imgModalImg" src="" alt="">
+</div>
+
+<script src="../script.js"></script>
+</body>
+</html>
