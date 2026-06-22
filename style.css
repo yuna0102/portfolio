@@ -109,9 +109,9 @@ nav {
   flex-shrink: 0;
   border: 1px solid var(--gray-100);
 }
-@media (max-width: 600px) {
-  .hero { flex-direction: column-reverse; gap: 20px; }
-  .hero-photo { width: 100%; height: 220px; }
+@media (max-width: 720px) {
+  .hero { flex-direction: column-reverse; }
+  .hero-photo { width: 100%; height: 200px; }
 }
 
 /* ══ BUSINESS IMPACT ══ */
@@ -146,7 +146,6 @@ nav {
 .impact-list li::before {
   content: '→'; position: absolute; left: 0; color: var(--gray-400); font-size: 11px;
 }
-@media (max-width: 600px) { .impact-grid { grid-template-columns: 1fr; } }
 
 /* ══ SKILL CHIPS under exp/proj ══ */
 .item-skills {
@@ -447,26 +446,127 @@ footer { padding: 40px 0 48px; display: flex; justify-content: space-between; al
   transform: translateY(0);
 }
 
-/* ══ RESPONSIVE ══ */
+/* ══ RESPONSIVE — MOBILE ══ */
 @media (max-width: 720px) {
-  .page, #project-detail { padding-left: 20px; padding-right: 20px; }
-  .detail-hero { aspect-ratio: 4 / 3; }
-  .detail-hero-overlay { padding: 40px 20px 24px; }
-  .detail-title { font-size: 20px; }
-  .process-flow { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* NAV: 햄버거 스타일 스크롤 바 */
+  nav { height: 52px; }
+  .nav-pill {
+    gap: 1px; padding: 3px;
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    max-width: calc(100vw - 24px);
+    scrollbar-width: none;
+  }
+  .nav-pill::-webkit-scrollbar { display: none; }
+  .nav-item {
+    font-size: 13px; padding: 7px 14px;
+  }
+
+  /* LAYOUT */
+  .page { padding-top: 52px; padding-left: 16px; padding-right: 16px; }
+  .project-page { padding: 0 16px 60px !important; }
+
+  /* HERO */
+  .hero { padding: 48px 0 40px; gap: 24px; }
   .hero-name { letter-spacing: -2px; }
-  .proj-grid { grid-template-columns: 1fr; }
-  .detail-body { grid-template-columns: 1fr; }
+  .hero-tagline { font-size: 15px; margin-bottom: 24px; }
+  .hero-links { gap: 6px; }
+  .hero-stats { gap: 24px; }
+  .stat-val { font-size: 22px; }
+
+  /* SECTIONS */
+  .section { padding: 40px 0; }
+  .section-eyebrow { margin-bottom: 24px; }
+
+  /* GRIDS → single column */
+  .proj-grid, .impact-grid, .awards-grid, .edu-grid { grid-template-columns: 1fr; }
+  .exp-item, .act-item { grid-template-columns: 1fr; gap: 8px; }
+
+  /* EXP TASK CARD */
+  .exp-task-card { padding: 16px 18px; }
+  .exp-task-row { grid-template-columns: 68px 1fr; gap: 6px 10px; }
+  .exp-task-label { font-size: 11px; padding: 3px 8px; }
+  .exp-task-content { font-size: 13px; }
+
+  /* PROJECT CARD */
+  .proj-card-body { padding: 16px 18px 20px; }
+  .proj-card-title { font-size: 16px; }
+  .proj-card-desc { font-size: 13px; margin-bottom: 12px; }
+
+  /* DETAIL HERO — 이미지 오버레이 */
+  .detail-hero { aspect-ratio: 4 / 3; border-radius: var(--radius-sm); }
+  .detail-hero-overlay { padding: 32px 20px 24px; }
+  .detail-title { font-size: 18px; letter-spacing: -0.3px; line-height: 1.45; }
+  .detail-intro { font-size: 13px; line-height: 1.65; }
+  .detail-badge { font-size: 10px; padding: 3px 8px; }
+  .detail-back { padding: 16px 0 16px; font-size: 12px; }
+
+  /* DETAIL BODY */
+  .detail-body { grid-template-columns: 1fr; gap: 0; }
   .detail-toc { display: none; }
-  .exp-item, .act-item { grid-template-columns: 1fr; gap: 4px; }
-  .exp-task-row { grid-template-columns: 72px 1fr; gap: 6px 10px; }
-  .awards-grid, .edu-grid { grid-template-columns: 1fr; }
-  .kpi-row { grid-template-columns: 1fr; }
-  .kpi-cell { border-right: none; border-bottom: 1px solid var(--gray-100); }
+  .detail-header { padding: 0 0 32px; }
+  .detail-meta-grid { padding: 16px; gap: 12px; margin-bottom: 20px; grid-template-columns: repeat(2, 1fr); }
+  .detail-meta-cell dt { font-size: 10px; }
+  .detail-meta-cell dd { font-size: 13px; }
+
+  /* KPI */
+  .kpi-row { grid-template-columns: 1fr; margin-bottom: 24px; }
+  .kpi-cell { padding: 16px 20px; border-right: none; border-bottom: 1px solid var(--gray-100); }
   .kpi-cell:last-child { border-bottom: none; }
-  .nav-pill { flex-wrap: wrap; border-radius: 16px; }
-  .impact-grid { grid-template-columns: 1fr; }
+  .kpi-val { font-size: 17px; }
+  .kpi-lbl { font-size: 11px; }
+
+  /* PROCESS FLOW — 세로 방향 */
+  .process-flow {
+    flex-direction: column; align-items: flex-start;
+    gap: 0; overflow-x: visible; margin: 12px 0;
+  }
+  .process-step { font-size: 11px; padding: 6px 14px; }
+  .process-arrow { transform: rotate(90deg); padding: 2px 0; font-size: 11px; align-self: flex-start; margin-left: 20px; }
+
+  /* CALLOUT / TABLE */
+  .callout { padding: 14px 16px; font-size: 13px; }
+  .tbl { font-size: 12px; }
+  .tbl th { padding: 7px 10px; font-size: 11px; }
+  .tbl td { padding: 9px 10px; font-size: 12px; }
+
+  /* PROJ BLOCK */
+  .proj-block-title { font-size: 12px; letter-spacing: 1px; }
+  .proj-block-h2 { font-size: 18px; }
+  .proj-block-h3 { font-size: 14px; }
+
+  /* IMG */
+  .img-frame { border-radius: var(--radius-sm); }
+  .img-cap { font-size: 11px; padding: 8px 12px; }
+
+  /* INSIGHT */
+  .insight-card { padding: 14px 16px; }
+  .insight-row { grid-template-columns: 44px 1fr; }
+
+  /* INLINE GRIDS */
+  .grid-2col { grid-template-columns: 1fr !important; }
+  .pubg-clusters { grid-template-columns: repeat(3, 1fr) !important; }
+
+  /* FOOTER */
+  footer { padding: 24px 0 32px; font-size: 12px; flex-direction: column; gap: 4px; align-items: flex-start; }
+
+  /* CONTACT */
+  .contact-row { gap: 16px; padding: 14px 0; }
+  .contact-type { width: 56px; font-size: 11px; }
+  .contact-val { font-size: 14px; }
 }
-@media (max-width: 600px) {
+
+/* ══ RESPONSIVE — SMALL MOBILE ══ */
+@media (max-width: 400px) {
+  .hero { flex-direction: column-reverse; gap: 16px; }
+  .hero-photo { width: 100%; height: 200px; }
+  .hero-stats { gap: 16px; }
+  .stat-val { font-size: 20px; }
+  .detail-hero { aspect-ratio: 1 / 1; }
+  .detail-title { font-size: 16px; }
+  .detail-meta-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .kpi-val { font-size: 15px; }
+  .exp-task-row { grid-template-columns: 1fr; }
+  .exp-task-label { align-self: flex-start; display: inline-block; margin-bottom: 2px; }
   .pubg-clusters { grid-template-columns: repeat(3, 1fr) !important; }
 }
