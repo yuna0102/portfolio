@@ -1,12 +1,12 @@
 (function () {
   // ────────────────────────────────────────
-  //  ⚙️  Supabase 설정 — 값 입력 필요
+  //  ⚙️  Supabase 설정
   // ────────────────────────────────────────
   var SURL = 'https://rvknxniwsrhstwtdwrcl.supabase.co';
   var SKEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ2a254bml3c3Joc3R3dGR3cmNsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMwNzYzNDksImV4cCI6MjA5ODY1MjM0OX0.ikfpw7nAlLCMpka1pd6jfrLn3W8VNYDY9SxgdN1UwN8';
   // ────────────────────────────────────────
 
-  // 세션 ID (탭 단위 유지)
+  // 세션 ID
   var sid = sessionStorage.getItem('_sid');
   if (!sid) {
     sid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
@@ -16,7 +16,7 @@
     sessionStorage.setItem('_sid', sid);
   }
 
-  // 내 기기 등록: URL에 ?_own=1 붙여서 접속하면 이후 모든 방문에 is_own=true 기록
+  // 내 기기 등록: ?_own=1 붙여서 접속
   if (location.search.indexOf('_own=1') !== -1) localStorage.setItem('_own', '1');
   var isOwn = localStorage.getItem('_own') === '1';
 
@@ -29,7 +29,13 @@
 
   var page = location.pathname;
 
-  function send(table, body) {
+  // UTM 파라미터 (PDF 등 외부 링크 추적용)
+  var params = new URLSearchParams(location.search);
+  var utmSource   = params.get('utm_source')   || null;
+  var utmMedium   = params.get('utm_medium')   || null;
+  var utmCampaign = params.get('utm_campaign') || null;
+
+  function send(table, body, keepalive) {
     fetch(SURL + '/rest/v1/' + table, {
       method: 'POST',
       headers: {
@@ -38,7 +44,8 @@
         'Content-Type': 'application/json',
         Prefer: 'return=minimal'
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify(body),
+      keepalive: !!keepalive
     }).catch(function () {});
   }
 
@@ -49,7 +56,10 @@
     device: device,
     referrer: document.referrer || null,
     is_return: isReturn,
-    is_own: isOwn
+    is_own: isOwn,
+    utm_source: utmSource,
+    utm_medium: utmMedium,
+    utm_campaign: utmCampaign
   });
 
   // 스크롤 깊이 (25 / 50 / 75 / 100%)
@@ -73,4 +83,19 @@
     var href = el.href || null;
     send('ev', { sid: sid, page: page, type: 'click', label: label, href: href, is_own: isOwn });
   });
+
+  // 체류시간: 페이지 떠날 때 기록 (keepalive로 안정적 전송)
+  var startTime = Date.now();
+  var durationSent = false;
+  function sendDuration() {
+    if (durationSent) return;
+    durationSent = true;
+    var sec = Math.round((Date.now() - startTime) / 1000);
+    if (sec < 2) return;
+    send('ev', { sid: sid, page: page, type: 'duration', val: sec, is_own: isOwn }, true);
+  }
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'hidden') sendDuration();
+  });
+  window.addEventListener('pagehide', sendDuration);
 })();
