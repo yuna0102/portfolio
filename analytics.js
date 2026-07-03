@@ -3,7 +3,7 @@
   //  ⚙️  Supabase 설정 — 값 입력 필요
   // ────────────────────────────────────────
   var SURL = 'https://rvknxniwsrhstwtdwrcl.supabase.co';
-  var SKEY = 'sb_publishable_3lmgCFwZTDlwLiXWNpWZ5A_iRgqi48W';
+  var SKEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ2a254bml3c3Joc3R3dGR3cmNsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMwNzYzNDksImV4cCI6MjA5ODY1MjM0OX0.ikfpw7nAlLCMpka1pd6jfrLn3W8VNYDY9SxgdN1UwN8';
   // ────────────────────────────────────────
 
   // 세션 ID (탭 단위 유지)
